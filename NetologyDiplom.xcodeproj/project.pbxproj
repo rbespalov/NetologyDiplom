@@ -7,20 +7,46 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D639ACC32991478600E80D62 /* NDProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACC22991478600E80D62 /* NDProfileViewController.swift */; };
+		D639ACC5299147B200E80D62 /* NDFavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACC4299147B200E80D62 /* NDFavoritesViewController.swift */; };
+		D639ACC7299147EE00E80D62 /* NDTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACC6299147EE00E80D62 /* NDTabBarController.swift */; };
+		D639ACC92991515C00E80D62 /* NDPostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACC82991515C00E80D62 /* NDPostModel.swift */; };
+		D639ACCB2991531D00E80D62 /* NDUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACCA2991531D00E80D62 /* NDUserModel.swift */; };
+		D639ACD42991536100E80D62 /* NDFeedViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACD32991536100E80D62 /* NDFeedViewViewModel.swift */; };
+		D639ACD62991536F00E80D62 /* NDProfileViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACD52991536F00E80D62 /* NDProfileViewViewModel.swift */; };
+		D639ACD82991538400E80D62 /* NDFavoritesViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACD72991538400E80D62 /* NDFavoritesViewViewModel.swift */; };
+		D639ACDA2991541600E80D62 /* NDFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACD92991541600E80D62 /* NDFeedView.swift */; };
+		D639ACDC2991543300E80D62 /* NDProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACDB2991543300E80D62 /* NDProfileView.swift */; };
+		D639ACDE2991544200E80D62 /* NDFavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACDD2991544200E80D62 /* NDFavoritesView.swift */; };
+		D639ACE02991738F00E80D62 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACDF2991738F00E80D62 /* File.swift */; };
+		D639ACE2299175E200E80D62 /* NDPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACE1299175E200E80D62 /* NDPostTableViewCell.swift */; };
+		D639ACE429917A0800E80D62 /* NDPostTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACE329917A0800E80D62 /* NDPostTableViewCellViewModel.swift */; };
 		D67D1BB7299142CF00385265 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67D1BB6299142CF00385265 /* AppDelegate.swift */; };
 		D67D1BB9299142CF00385265 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67D1BB8299142CF00385265 /* SceneDelegate.swift */; };
-		D67D1BBB299142CF00385265 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67D1BBA299142CF00385265 /* ViewController.swift */; };
-		D67D1BBE299142CF00385265 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D67D1BBC299142CF00385265 /* Main.storyboard */; };
+		D67D1BBB299142CF00385265 /* NDFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67D1BBA299142CF00385265 /* NDFeedViewController.swift */; };
 		D67D1BC0299142D000385265 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D67D1BBF299142D000385265 /* Assets.xcassets */; };
 		D67D1BC3299142D000385265 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D67D1BC1299142D000385265 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D639ACC22991478600E80D62 /* NDProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDProfileViewController.swift; sourceTree = "<group>"; };
+		D639ACC4299147B200E80D62 /* NDFavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDFavoritesViewController.swift; sourceTree = "<group>"; };
+		D639ACC6299147EE00E80D62 /* NDTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDTabBarController.swift; sourceTree = "<group>"; };
+		D639ACC82991515C00E80D62 /* NDPostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDPostModel.swift; sourceTree = "<group>"; };
+		D639ACCA2991531D00E80D62 /* NDUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDUserModel.swift; sourceTree = "<group>"; };
+		D639ACD32991536100E80D62 /* NDFeedViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDFeedViewViewModel.swift; sourceTree = "<group>"; };
+		D639ACD52991536F00E80D62 /* NDProfileViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDProfileViewViewModel.swift; sourceTree = "<group>"; };
+		D639ACD72991538400E80D62 /* NDFavoritesViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDFavoritesViewViewModel.swift; sourceTree = "<group>"; };
+		D639ACD92991541600E80D62 /* NDFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDFeedView.swift; sourceTree = "<group>"; };
+		D639ACDB2991543300E80D62 /* NDProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDProfileView.swift; sourceTree = "<group>"; };
+		D639ACDD2991544200E80D62 /* NDFavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDFavoritesView.swift; sourceTree = "<group>"; };
+		D639ACDF2991738F00E80D62 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		D639ACE1299175E200E80D62 /* NDPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDPostTableViewCell.swift; sourceTree = "<group>"; };
+		D639ACE329917A0800E80D62 /* NDPostTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDPostTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		D67D1BB3299142CF00385265 /* NetologyDiplom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetologyDiplom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D67D1BB6299142CF00385265 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D67D1BB8299142CF00385265 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D67D1BBA299142CF00385265 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D67D1BBD299142CF00385265 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D67D1BBA299142CF00385265 /* NDFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDFeedViewController.swift; sourceTree = "<group>"; };
 		D67D1BBF299142D000385265 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D67D1BC2299142D000385265 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D67D1BC4299142D000385265 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -37,6 +63,60 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D639ACBB2991456400E80D62 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D67D1BB8299142CF00385265 /* SceneDelegate.swift */,
+				D67D1BB6299142CF00385265 /* AppDelegate.swift */,
+				D67D1BBF299142D000385265 /* Assets.xcassets */,
+				D67D1BC1299142D000385265 /* LaunchScreen.storyboard */,
+				D639ACDF2991738F00E80D62 /* File.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D639ACBC2991458A00E80D62 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D67D1BBA299142CF00385265 /* NDFeedViewController.swift */,
+				D639ACC22991478600E80D62 /* NDProfileViewController.swift */,
+				D639ACC4299147B200E80D62 /* NDFavoritesViewController.swift */,
+				D639ACC6299147EE00E80D62 /* NDTabBarController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D639ACBD2991459100E80D62 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D639ACD92991541600E80D62 /* NDFeedView.swift */,
+				D639ACE1299175E200E80D62 /* NDPostTableViewCell.swift */,
+				D639ACDB2991543300E80D62 /* NDProfileView.swift */,
+				D639ACDD2991544200E80D62 /* NDFavoritesView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D639ACBE299145AF00E80D62 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				D639ACD32991536100E80D62 /* NDFeedViewViewModel.swift */,
+				D639ACE329917A0800E80D62 /* NDPostTableViewCellViewModel.swift */,
+				D639ACD52991536F00E80D62 /* NDProfileViewViewModel.swift */,
+				D639ACD72991538400E80D62 /* NDFavoritesViewViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		D639ACBF299145B700E80D62 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D639ACC82991515C00E80D62 /* NDPostModel.swift */,
+				D639ACCA2991531D00E80D62 /* NDUserModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		D67D1BAA299142CF00385265 = {
 			isa = PBXGroup;
 			children = (
@@ -56,12 +136,11 @@
 		D67D1BB5299142CF00385265 /* NetologyDiplom */ = {
 			isa = PBXGroup;
 			children = (
-				D67D1BB6299142CF00385265 /* AppDelegate.swift */,
-				D67D1BB8299142CF00385265 /* SceneDelegate.swift */,
-				D67D1BBA299142CF00385265 /* ViewController.swift */,
-				D67D1BBC299142CF00385265 /* Main.storyboard */,
-				D67D1BBF299142D000385265 /* Assets.xcassets */,
-				D67D1BC1299142D000385265 /* LaunchScreen.storyboard */,
+				D639ACBB2991456400E80D62 /* Resources */,
+				D639ACBF299145B700E80D62 /* Models */,
+				D639ACBE299145AF00E80D62 /* ViewModels */,
+				D639ACBD2991459100E80D62 /* Views */,
+				D639ACBC2991458A00E80D62 /* Controllers */,
 				D67D1BC4299142D000385265 /* Info.plist */,
 			);
 			path = NetologyDiplom;
@@ -127,7 +206,6 @@
 			files = (
 				D67D1BC3299142D000385265 /* LaunchScreen.storyboard in Resources */,
 				D67D1BC0299142D000385265 /* Assets.xcassets in Resources */,
-				D67D1BBE299142CF00385265 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +216,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D67D1BBB299142CF00385265 /* ViewController.swift in Sources */,
+				D639ACDA2991541600E80D62 /* NDFeedView.swift in Sources */,
+				D639ACC5299147B200E80D62 /* NDFavoritesViewController.swift in Sources */,
+				D67D1BBB299142CF00385265 /* NDFeedViewController.swift in Sources */,
+				D639ACC7299147EE00E80D62 /* NDTabBarController.swift in Sources */,
+				D639ACDE2991544200E80D62 /* NDFavoritesView.swift in Sources */,
+				D639ACD82991538400E80D62 /* NDFavoritesViewViewModel.swift in Sources */,
+				D639ACC92991515C00E80D62 /* NDPostModel.swift in Sources */,
+				D639ACD42991536100E80D62 /* NDFeedViewViewModel.swift in Sources */,
+				D639ACD62991536F00E80D62 /* NDProfileViewViewModel.swift in Sources */,
+				D639ACC32991478600E80D62 /* NDProfileViewController.swift in Sources */,
+				D639ACE02991738F00E80D62 /* File.swift in Sources */,
+				D639ACE429917A0800E80D62 /* NDPostTableViewCellViewModel.swift in Sources */,
+				D639ACDC2991543300E80D62 /* NDProfileView.swift in Sources */,
 				D67D1BB7299142CF00385265 /* AppDelegate.swift in Sources */,
+				D639ACCB2991531D00E80D62 /* NDUserModel.swift in Sources */,
 				D67D1BB9299142CF00385265 /* SceneDelegate.swift in Sources */,
+				D639ACE2299175E200E80D62 /* NDPostTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		D67D1BBC299142CF00385265 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D67D1BBD299142CF00385265 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D67D1BC1299142D000385265 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -291,10 +375,9 @@
 				INFOPLIST_FILE = NetologyDiplom/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -322,10 +405,9 @@
 				INFOPLIST_FILE = NetologyDiplom/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

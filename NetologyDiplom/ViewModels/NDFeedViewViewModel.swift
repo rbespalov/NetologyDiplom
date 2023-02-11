@@ -11,11 +11,11 @@ import UIKit
 final class NDFeedViewViewModel: NSObject {
     
     public var posts: [NDPostTableViewCellViewModel] = [
-        NDPostTableViewCellViewModel(authorName: "1", authorAvatar: "1", authorStatus: "z", postText: "1", postImage: "1", numberOfLikes: 1, numberOfComments: 1, postDate: .now
+        NDPostTableViewCellViewModel(authorName: "Adolf Linkler", authorAvatar: "user", authorStatus: "Galaktus", postText: "On June 11, 2021, the band returned with a new song titled To the Hellfire, and announced Ramos as their new permanent vocalist. They also announced details of their new EP; ...And I Return to Nothingness.[20] It is the band’s first EP since their breakthrough 2013 release Maleficium.", postImage: "rick", numberOfLikes: 13332, numberOfComments: 1231, postDate: .now
         ),
-        NDPostTableViewCellViewModel(authorName: "2", authorAvatar: "2", authorStatus: "2", postText: "2", postImage: "2", numberOfLikes: 2, numberOfComments: 2, postDate: .now
+        NDPostTableViewCellViewModel(authorName: "Pako Sanchez", authorAvatar: "user", authorStatus: "El barto", postText: "On June 11, 2021, the band returned with a new song titled To the Hellfire, and announced Ramos as their new permanent vocalist. They also announced details of their new EP; ...And I Return to Nothingness.[20] It is the band’s first EP since their breakthrough 2013 release Maleficium.", postImage: "rick", numberOfLikes: 4342, numberOfComments: 223, postDate: .now
         ),
-        NDPostTableViewCellViewModel(authorName: "3", authorAvatar: "3", authorStatus: "3", postText: "3", postImage: "3", numberOfLikes: 3, numberOfComments: 3, postDate: .now
+        NDPostTableViewCellViewModel(authorName: "Morty Smith", authorAvatar: "user", authorStatus: "Okaaaay", postText: "On June 11, 2021, the band returned with a new song titled To the Hellfire, and announced Ramos as their new permanent vocalist. They also announced details of their new EP; ...And I Return to Nothingness.[20] It is the band’s first EP since their breakthrough 2013 release Maleficium.", postImage: "rick", numberOfLikes: 343, numberOfComments: 363, postDate: .now
         ),
     ]
     
@@ -38,6 +38,5 @@ extension NDFeedViewViewModel: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
-    
     
 }

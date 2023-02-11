@@ -21,6 +21,8 @@
 		D639ACE02991738F00E80D62 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACDF2991738F00E80D62 /* File.swift */; };
 		D639ACE2299175E200E80D62 /* NDPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACE1299175E200E80D62 /* NDPostTableViewCell.swift */; };
 		D639ACE429917A0800E80D62 /* NDPostTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACE329917A0800E80D62 /* NDPostTableViewCellViewModel.swift */; };
+		D639ACE629940B3F00E80D62 /* NDDetailedUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACE529940B3F00E80D62 /* NDDetailedUserInfo.swift */; };
+		D639ACE829940D4800E80D62 /* NDCommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACE729940D4800E80D62 /* NDCommentModel.swift */; };
 		D67D1BB7299142CF00385265 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67D1BB6299142CF00385265 /* AppDelegate.swift */; };
 		D67D1BB9299142CF00385265 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67D1BB8299142CF00385265 /* SceneDelegate.swift */; };
 		D67D1BBB299142CF00385265 /* NDFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67D1BBA299142CF00385265 /* NDFeedViewController.swift */; };
@@ -43,6 +45,8 @@
 		D639ACDF2991738F00E80D62 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		D639ACE1299175E200E80D62 /* NDPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDPostTableViewCell.swift; sourceTree = "<group>"; };
 		D639ACE329917A0800E80D62 /* NDPostTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDPostTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		D639ACE529940B3F00E80D62 /* NDDetailedUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDDetailedUserInfo.swift; sourceTree = "<group>"; };
+		D639ACE729940D4800E80D62 /* NDCommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDCommentModel.swift; sourceTree = "<group>"; };
 		D67D1BB3299142CF00385265 /* NetologyDiplom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetologyDiplom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D67D1BB6299142CF00385265 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D67D1BB8299142CF00385265 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +117,8 @@
 			children = (
 				D639ACC82991515C00E80D62 /* NDPostModel.swift */,
 				D639ACCA2991531D00E80D62 /* NDUserModel.swift */,
+				D639ACE529940B3F00E80D62 /* NDDetailedUserInfo.swift */,
+				D639ACE729940D4800E80D62 /* NDCommentModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -220,6 +226,7 @@
 				D639ACC5299147B200E80D62 /* NDFavoritesViewController.swift in Sources */,
 				D67D1BBB299142CF00385265 /* NDFeedViewController.swift in Sources */,
 				D639ACC7299147EE00E80D62 /* NDTabBarController.swift in Sources */,
+				D639ACE629940B3F00E80D62 /* NDDetailedUserInfo.swift in Sources */,
 				D639ACDE2991544200E80D62 /* NDFavoritesView.swift in Sources */,
 				D639ACD82991538400E80D62 /* NDFavoritesViewViewModel.swift in Sources */,
 				D639ACC92991515C00E80D62 /* NDPostModel.swift in Sources */,
@@ -227,6 +234,7 @@
 				D639ACD62991536F00E80D62 /* NDProfileViewViewModel.swift in Sources */,
 				D639ACC32991478600E80D62 /* NDProfileViewController.swift in Sources */,
 				D639ACE02991738F00E80D62 /* File.swift in Sources */,
+				D639ACE829940D4800E80D62 /* NDCommentModel.swift in Sources */,
 				D639ACE429917A0800E80D62 /* NDPostTableViewCellViewModel.swift in Sources */,
 				D639ACDC2991543300E80D62 /* NDProfileView.swift in Sources */,
 				D67D1BB7299142CF00385265 /* AppDelegate.swift in Sources */,

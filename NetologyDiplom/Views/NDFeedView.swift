@@ -12,9 +12,10 @@ final class NDFeedView: UIView {
     private let viewModel = NDFeedViewViewModel()
     
     private let tableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .plain)
+        let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(NDPostTableViewCell.self, forCellReuseIdentifier: NDPostTableViewCell.cellIdentifier)
+        tableView.rowHeight = UITableView.automaticDimension
         return tableView
     }()
 
@@ -27,7 +28,6 @@ final class NDFeedView: UIView {
         tableView.delegate = viewModel
         tableView.dataSource = viewModel
         
-//        viewModel.posts = viewModel.make()
     }
     
     required init?(coder: NSCoder) {

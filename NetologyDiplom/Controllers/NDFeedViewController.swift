@@ -38,8 +38,14 @@ final class NDFeedViewController: UIViewController {
         
         let leftItem = UIBarButtonItem(customView: leftLabel)
         navigationItem.leftBarButtonItem = leftItem
+        
+        let rightItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addPost))
+        navigationItem.rightBarButtonItems = [rightItem]
     }
 
+    @objc private func addPost() {
+        print("works")
+    }
 
 }
 

@@ -8,6 +8,7 @@
 import Foundation
 
 struct NDPostModel {
+    let ID: String = UUID().uuidString
     var authorName: String
     var authorAvatar: String
     var authorStatus: String
@@ -16,4 +17,6 @@ struct NDPostModel {
     var numberOfLikes: Int
     var numberOfComments: Int
     var postDate: Date
+    var comments: [NDCommentModel]
+    
 }

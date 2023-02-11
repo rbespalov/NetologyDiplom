@@ -171,7 +171,7 @@ class NDPostTableViewCell: UITableViewCell {
         postImage.image = UIImage(named: viewModel.postImage)
         
         let df = DateFormatter()
-        df.dateFormat = "m.d.yyyy"
+        df.dateFormat = "dd.MM.yy"
         postDate.text = df.string(from: viewModel.postDate)
     }
 }

@@ -39,4 +39,26 @@ extension NDFeedViewViewModel: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        if section == 0 {
+            
+            guard let tableHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: NDFeedTableHeaderView.headeridentifier) as? NDFeedTableHeaderView else {
+                fatalError("could not dequeueReusableHeadr")
+            }
+            return tableHeader
+        } else {
+            let emptyView = UIView()
+            return emptyView
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 150
+        } else {
+            return 0
+        }
+    }
+    
 }

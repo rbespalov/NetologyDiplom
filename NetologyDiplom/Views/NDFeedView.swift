@@ -15,6 +15,7 @@ final class NDFeedView: UIView {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(NDPostTableViewCell.self, forCellReuseIdentifier: NDPostTableViewCell.cellIdentifier)
+        tableView.register(NDFeedTableHeaderView.self, forHeaderFooterViewReuseIdentifier: NDFeedTableHeaderView.headeridentifier)
         tableView.rowHeight = UITableView.automaticDimension
         return tableView
     }()
@@ -27,6 +28,8 @@ final class NDFeedView: UIView {
         setupConstraints()
         tableView.delegate = viewModel
         tableView.dataSource = viewModel
+        
+        
         
     }
     

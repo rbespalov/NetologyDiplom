@@ -23,6 +23,11 @@
 		D639ACE429917A0800E80D62 /* NDPostTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACE329917A0800E80D62 /* NDPostTableViewCellViewModel.swift */; };
 		D639ACE629940B3F00E80D62 /* NDDetailedUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACE529940B3F00E80D62 /* NDDetailedUserInfo.swift */; };
 		D639ACE829940D4800E80D62 /* NDCommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACE729940D4800E80D62 /* NDCommentModel.swift */; };
+		D639ACEA2997C13B00E80D62 /* NDFeedTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACE92997C13B00E80D62 /* NDFeedTableHeaderView.swift */; };
+		D639ACEC2997C49200E80D62 /* NDFeedHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACEB2997C49200E80D62 /* NDFeedHeaderView.swift */; };
+		D639ACEE2997C9F100E80D62 /* NDFeedHeadViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACED2997C9F100E80D62 /* NDFeedHeadViewCollectionViewCell.swift */; };
+		D639ACF02997CBAA00E80D62 /* NDFeedHeadViewCollectionViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACEF2997CBAA00E80D62 /* NDFeedHeadViewCollectionViewViewModel.swift */; };
+		D639ACF22997D58200E80D62 /* NDFeedHeadViewCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACF12997D58200E80D62 /* NDFeedHeadViewCollectionViewCellViewModel.swift */; };
 		D67D1BB7299142CF00385265 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67D1BB6299142CF00385265 /* AppDelegate.swift */; };
 		D67D1BB9299142CF00385265 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67D1BB8299142CF00385265 /* SceneDelegate.swift */; };
 		D67D1BBB299142CF00385265 /* NDFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67D1BBA299142CF00385265 /* NDFeedViewController.swift */; };
@@ -47,6 +52,11 @@
 		D639ACE329917A0800E80D62 /* NDPostTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDPostTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		D639ACE529940B3F00E80D62 /* NDDetailedUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDDetailedUserInfo.swift; sourceTree = "<group>"; };
 		D639ACE729940D4800E80D62 /* NDCommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDCommentModel.swift; sourceTree = "<group>"; };
+		D639ACE92997C13B00E80D62 /* NDFeedTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDFeedTableHeaderView.swift; sourceTree = "<group>"; };
+		D639ACEB2997C49200E80D62 /* NDFeedHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDFeedHeaderView.swift; sourceTree = "<group>"; };
+		D639ACED2997C9F100E80D62 /* NDFeedHeadViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDFeedHeadViewCollectionViewCell.swift; sourceTree = "<group>"; };
+		D639ACEF2997CBAA00E80D62 /* NDFeedHeadViewCollectionViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDFeedHeadViewCollectionViewViewModel.swift; sourceTree = "<group>"; };
+		D639ACF12997D58200E80D62 /* NDFeedHeadViewCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDFeedHeadViewCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		D67D1BB3299142CF00385265 /* NetologyDiplom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetologyDiplom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D67D1BB6299142CF00385265 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D67D1BB8299142CF00385265 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +105,9 @@
 			children = (
 				D639ACD92991541600E80D62 /* NDFeedView.swift */,
 				D639ACE1299175E200E80D62 /* NDPostTableViewCell.swift */,
+				D639ACE92997C13B00E80D62 /* NDFeedTableHeaderView.swift */,
+				D639ACEB2997C49200E80D62 /* NDFeedHeaderView.swift */,
+				D639ACED2997C9F100E80D62 /* NDFeedHeadViewCollectionViewCell.swift */,
 				D639ACDB2991543300E80D62 /* NDProfileView.swift */,
 				D639ACDD2991544200E80D62 /* NDFavoritesView.swift */,
 			);
@@ -106,8 +119,10 @@
 			children = (
 				D639ACD32991536100E80D62 /* NDFeedViewViewModel.swift */,
 				D639ACE329917A0800E80D62 /* NDPostTableViewCellViewModel.swift */,
-				D639ACD52991536F00E80D62 /* NDProfileViewViewModel.swift */,
+				D639ACEF2997CBAA00E80D62 /* NDFeedHeadViewCollectionViewViewModel.swift */,
+				D639ACF12997D58200E80D62 /* NDFeedHeadViewCollectionViewCellViewModel.swift */,
 				D639ACD72991538400E80D62 /* NDFavoritesViewViewModel.swift */,
+				D639ACD52991536F00E80D62 /* NDProfileViewViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -227,7 +242,10 @@
 				D67D1BBB299142CF00385265 /* NDFeedViewController.swift in Sources */,
 				D639ACC7299147EE00E80D62 /* NDTabBarController.swift in Sources */,
 				D639ACE629940B3F00E80D62 /* NDDetailedUserInfo.swift in Sources */,
+				D639ACEE2997C9F100E80D62 /* NDFeedHeadViewCollectionViewCell.swift in Sources */,
+				D639ACEC2997C49200E80D62 /* NDFeedHeaderView.swift in Sources */,
 				D639ACDE2991544200E80D62 /* NDFavoritesView.swift in Sources */,
+				D639ACF22997D58200E80D62 /* NDFeedHeadViewCollectionViewCellViewModel.swift in Sources */,
 				D639ACD82991538400E80D62 /* NDFavoritesViewViewModel.swift in Sources */,
 				D639ACC92991515C00E80D62 /* NDPostModel.swift in Sources */,
 				D639ACD42991536100E80D62 /* NDFeedViewViewModel.swift in Sources */,
@@ -237,8 +255,10 @@
 				D639ACE829940D4800E80D62 /* NDCommentModel.swift in Sources */,
 				D639ACE429917A0800E80D62 /* NDPostTableViewCellViewModel.swift in Sources */,
 				D639ACDC2991543300E80D62 /* NDProfileView.swift in Sources */,
+				D639ACEA2997C13B00E80D62 /* NDFeedTableHeaderView.swift in Sources */,
 				D67D1BB7299142CF00385265 /* AppDelegate.swift in Sources */,
 				D639ACCB2991531D00E80D62 /* NDUserModel.swift in Sources */,
+				D639ACF02997CBAA00E80D62 /* NDFeedHeadViewCollectionViewViewModel.swift in Sources */,
 				D67D1BB9299142CF00385265 /* SceneDelegate.swift in Sources */,
 				D639ACE2299175E200E80D62 /* NDPostTableViewCell.swift in Sources */,
 			);

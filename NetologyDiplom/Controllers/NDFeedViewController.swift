@@ -36,16 +36,31 @@ final class NDFeedViewController: UIViewController {
            return leftLabel
         }()
         
+        let firstRightIcon: UIImageView = {
+           let icon = UIImageView(image: UIImage(systemName: "bell"))
+            return icon
+        }()
+        
+        let secondRightIcon: UIImageView = {
+           let icon = UIImageView(image: UIImage(systemName: "magnifyingglass"))
+            return icon
+        }()
+        
         let leftItem = UIBarButtonItem(customView: leftLabel)
+        let firstRightItem = UIBarButtonItem(customView: firstRightIcon)
+        let secondRightItem = UIBarButtonItem(customView: secondRightIcon)
+
         navigationItem.leftBarButtonItem = leftItem
         
-        let rightItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addPost))
-        navigationItem.rightBarButtonItems = [rightItem]
+        navigationItem.rightBarButtonItems = [firstRightItem, secondRightItem]
+        
+//        let rightItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addPost))
+//        navigationItem.rightBarButtonItems = [rightItem]
     }
 
-    @objc private func addPost() {
-        print("works")
-    }
+//    @objc private func addPost() {
+//        print("works")
+//    }
 
 }
 

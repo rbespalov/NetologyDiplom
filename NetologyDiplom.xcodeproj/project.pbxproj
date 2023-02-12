@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D605909D2999671C00C53D7C /* NDSingInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D605909A2999671C00C53D7C /* NDSingInViewController.swift */; };
+		D605909E2999671C00C53D7C /* NDRegisterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D605909B2999671C00C53D7C /* NDRegisterUserViewController.swift */; };
+		D605909F2999671C00C53D7C /* NDAuthorisationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D605909C2999671C00C53D7C /* NDAuthorisationViewController.swift */; };
+		D60590A32999672F00C53D7C /* NDRegisterUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60590A12999672F00C53D7C /* NDRegisterUserView.swift */; };
+		D60590A42999672F00C53D7C /* NDAuthorisationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60590A22999672F00C53D7C /* NDAuthorisationView.swift */; };
 		D639ACC32991478600E80D62 /* NDProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACC22991478600E80D62 /* NDProfileViewController.swift */; };
 		D639ACC5299147B200E80D62 /* NDFavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACC4299147B200E80D62 /* NDFavoritesViewController.swift */; };
 		D639ACC7299147EE00E80D62 /* NDTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACC6299147EE00E80D62 /* NDTabBarController.swift */; };
@@ -41,6 +46,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D605909A2999671C00C53D7C /* NDSingInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NDSingInViewController.swift; sourceTree = "<group>"; };
+		D605909B2999671C00C53D7C /* NDRegisterUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NDRegisterUserViewController.swift; sourceTree = "<group>"; };
+		D605909C2999671C00C53D7C /* NDAuthorisationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NDAuthorisationViewController.swift; sourceTree = "<group>"; };
+		D60590A12999672F00C53D7C /* NDRegisterUserView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NDRegisterUserView.swift; sourceTree = "<group>"; };
+		D60590A22999672F00C53D7C /* NDAuthorisationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NDAuthorisationView.swift; sourceTree = "<group>"; };
 		D639ACC22991478600E80D62 /* NDProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDProfileViewController.swift; sourceTree = "<group>"; };
 		D639ACC4299147B200E80D62 /* NDFavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDFavoritesViewController.swift; sourceTree = "<group>"; };
 		D639ACC6299147EE00E80D62 /* NDTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDTabBarController.swift; sourceTree = "<group>"; };
@@ -87,6 +97,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D60590992999671C00C53D7C /* Authorisation */ = {
+			isa = PBXGroup;
+			children = (
+				D605909B2999671C00C53D7C /* NDRegisterUserViewController.swift */,
+				D605909C2999671C00C53D7C /* NDAuthorisationViewController.swift */,
+				D605909A2999671C00C53D7C /* NDSingInViewController.swift */,
+			);
+			path = Authorisation;
+			sourceTree = "<group>";
+		};
+		D60590A02999672F00C53D7C /* AuthorisationViews */ = {
+			isa = PBXGroup;
+			children = (
+				D60590A22999672F00C53D7C /* NDAuthorisationView.swift */,
+				D60590A12999672F00C53D7C /* NDRegisterUserView.swift */,
+			);
+			path = AuthorisationViews;
+			sourceTree = "<group>";
+		};
 		D639ACBB2991456400E80D62 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +131,7 @@
 		D639ACBC2991458A00E80D62 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D60590992999671C00C53D7C /* Authorisation */,
 				D67D1BBA299142CF00385265 /* NDFeedViewController.swift */,
 				D639ACC22991478600E80D62 /* NDProfileViewController.swift */,
 				D639ACC4299147B200E80D62 /* NDFavoritesViewController.swift */,
@@ -113,6 +143,7 @@
 		D639ACBD2991459100E80D62 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D60590A02999672F00C53D7C /* AuthorisationViews */,
 				D639ACF42997F1A500E80D62 /* FeedViews */,
 				D639ACFB2998FF3200E80D62 /* ProfileViews */,
 				D639ACE1299175E200E80D62 /* NDPostTableViewCell.swift */,
@@ -285,12 +316,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				D639ACDA2991541600E80D62 /* NDFeedView.swift in Sources */,
+				D605909F2999671C00C53D7C /* NDAuthorisationViewController.swift in Sources */,
 				D639ACC5299147B200E80D62 /* NDFavoritesViewController.swift in Sources */,
 				D67D1BBB299142CF00385265 /* NDFeedViewController.swift in Sources */,
 				D639ACC7299147EE00E80D62 /* NDTabBarController.swift in Sources */,
+				D60590A42999672F00C53D7C /* NDAuthorisationView.swift in Sources */,
 				D639ACE629940B3F00E80D62 /* NDDetailedUserInfo.swift in Sources */,
 				D639ACEE2997C9F100E80D62 /* NDFeedHeaderViewCollectionViewCell.swift in Sources */,
 				D639ACEC2997C49200E80D62 /* NDFeedHeaderView.swift in Sources */,
+				D60590A32999672F00C53D7C /* NDRegisterUserView.swift in Sources */,
 				D639ACF82997F64B00E80D62 /* NDProfileHeaderView.swift in Sources */,
 				D639ACDE2991544200E80D62 /* NDFavoritesView.swift in Sources */,
 				D639ACF22997D58200E80D62 /* NDFeedHeadViewCollectionViewCellViewModel.swift in Sources */,
@@ -304,6 +338,8 @@
 				D639ACE02991738F00E80D62 /* File.swift in Sources */,
 				D639ACE829940D4800E80D62 /* NDCommentModel.swift in Sources */,
 				D639ACE429917A0800E80D62 /* NDPostTableViewCellViewModel.swift in Sources */,
+				D605909E2999671C00C53D7C /* NDRegisterUserViewController.swift in Sources */,
+				D605909D2999671C00C53D7C /* NDSingInViewController.swift in Sources */,
 				D639ACDC2991543300E80D62 /* NDProfileView.swift in Sources */,
 				D6746DEE2999045F005E5584 /* NDProfileHeaderViewCollectionViewCellViewModel.swift in Sources */,
 				D639ACEA2997C13B00E80D62 /* NDFeedTableHeaderView.swift in Sources */,

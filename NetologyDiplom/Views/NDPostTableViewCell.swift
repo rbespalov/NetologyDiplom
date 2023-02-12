@@ -85,11 +85,25 @@ class NDPostTableViewCell: UITableViewCell {
          return label
      }()
     
+    private var bookmarkImage: UIImageView = {
+        let image = UIImageView(image: UIImage(systemName: "bookmark"))
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
+    }()
+    
+    private var ellipsisImage: UIImageView = {
+        let image = UIImageView(image: UIImage(systemName: "ellipsis"))
+        image.transform = image.transform.rotated(by: .pi/2)
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
+    }()
+    
+    
     //MARK: - Init
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.addSubviews(authorAvatar, authorName, authorStatus, postText, postImage, likeImage, numberOfLikes, commentImage, numberOfComments, postDate)
+        contentView.addSubviews(authorAvatar, authorName, authorStatus, postText, postImage, likeImage, numberOfLikes, commentImage, numberOfComments, postDate, bookmarkImage, ellipsisImage)
         contentView.layer.cornerRadius = 10
         contentView.backgroundColor = .systemGray5
         contentView.layer.shadowRadius = 10
@@ -110,7 +124,6 @@ class NDPostTableViewCell: UITableViewCell {
             
             postDate.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             postDate.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-//            postDate.bottomAnchor.constraint(equalTo: <#T##NSLayoutAnchor<NSLayoutYAxisAnchor>#>, constant: <#T##CGFloat#>)
             
             authorAvatar.topAnchor.constraint(equalTo: postDate.bottomAnchor, constant: 10),
             authorAvatar.leftAnchor.constraint(equalTo: contentView.leftAnchor),
@@ -122,6 +135,9 @@ class NDPostTableViewCell: UITableViewCell {
 
             authorStatus.topAnchor.constraint(equalTo: authorName.bottomAnchor, constant: 5),
             authorStatus.leftAnchor.constraint(equalTo: authorAvatar.rightAnchor, constant: 15),
+            
+            ellipsisImage.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -20),
+            ellipsisImage.topAnchor.constraint(equalTo: postDate.bottomAnchor, constant: 10),
             
             postText.topAnchor.constraint(equalTo: authorStatus.bottomAnchor, constant: 20),
             postText.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10),
@@ -146,7 +162,11 @@ class NDPostTableViewCell: UITableViewCell {
             
             numberOfComments.topAnchor.constraint(equalTo: postImage.bottomAnchor, constant: 10),
             numberOfComments.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
-            numberOfComments.leftAnchor.constraint(equalTo: commentImage.rightAnchor, constant: 10)
+            numberOfComments.leftAnchor.constraint(equalTo: commentImage.rightAnchor, constant: 10),
+            
+            bookmarkImage.topAnchor.constraint(equalTo: postImage.bottomAnchor, constant: 10),
+            bookmarkImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+            bookmarkImage.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -20),
         ])
     }
     

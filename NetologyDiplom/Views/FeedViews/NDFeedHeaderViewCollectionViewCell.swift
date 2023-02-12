@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NDFeedHeadViewCollectionViewCell: UICollectionViewCell {
+class NDFeedHeaderViewCollectionViewCell: UICollectionViewCell {
     
     static let cellIdentifier = "NDFeedHeadViewCollectionViewCell"
         

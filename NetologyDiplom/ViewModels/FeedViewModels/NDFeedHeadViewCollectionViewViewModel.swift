@@ -31,7 +31,7 @@ extension NDFeedHeadViewCollectionViewViewModel: UICollectionViewDataSource, UIC
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NDFeedHeadViewCollectionViewCell.cellIdentifier, for: indexPath) as? NDFeedHeadViewCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NDFeedHeaderViewCollectionViewCell.cellIdentifier, for: indexPath) as? NDFeedHeaderViewCollectionViewCell else {
             fatalError("Unsupported cell")
         }
         cell.configure(with: avatars[indexPath.row])
@@ -44,7 +44,6 @@ extension NDFeedHeadViewCollectionViewViewModel: UICollectionViewDataSource, UIC
         let bounds = UIScreen.main.bounds
         let width = (bounds.width-60)/5
         return CGSize(width: width, height: width)
-//        return CGSize(width: 50, height: 50)
     }
     
     

@@ -31,13 +31,12 @@ class NDFeedHeaderView: UIView {
         layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.register(NDFeedHeadViewCollectionViewCell.self, forCellWithReuseIdentifier: NDFeedHeadViewCollectionViewCell.cellIdentifier)
+        collectionView.register(NDFeedHeaderViewCollectionViewCell.self, forCellWithReuseIdentifier: NDFeedHeaderViewCollectionViewCell.cellIdentifier)
         return collectionView
     }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-//        backgroundColor = .red
         addSubviews(newsLabel, forYouLabel, collectionView)
         setupConstraints()
         collectionView.delegate = viewModel

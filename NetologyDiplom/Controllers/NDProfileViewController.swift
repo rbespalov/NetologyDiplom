@@ -8,22 +8,43 @@
 import UIKit
 
 final class NDProfileViewController: UIViewController {
-
+    
+    private let profileView = NDProfileView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        navigationItem.title = "Профиль"
+        setUpView()
+        stupNavigationBar()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setUpView() {
+        view.addSubview(profileView)
+        NSLayoutConstraint.activate([
+            profileView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            profileView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            profileView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+            profileView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
+        ])
     }
-    */
-
+    
+    func stupNavigationBar() {
+        
+        let leftItem: UILabel = {
+            let label = UILabel()
+            label.text = "rick_sanchez"
+            return label
+        }()
+        
+        let lefBarItem = UIBarButtonItem(customView: leftItem)
+        
+        let rightItem: UIImageView = {
+            let image = UIImageView(image: UIImage(systemName: "line.3.horizontal"))
+            return image
+        }()
+        
+        let rightBarItem = UIBarButtonItem(customView: rightItem)
+        navigationItem.rightBarButtonItem = rightBarItem
+        navigationItem.leftBarButtonItem = lefBarItem
+    }
 }

@@ -33,7 +33,7 @@ final class NDTabBarController: UITabBarController {
         
         nav1.tabBarItem = .init(title: "Главная", image: UIImage(systemName: "house"), tag: 1)
         nav2.tabBarItem = .init(title: "Профиль", image: UIImage(systemName: "person.crop.circle"), tag: 2)
-        nav3.tabBarItem = .init(title: "Избранное", image: UIImage(systemName: "heart.circle"), tag: 3)
+        nav3.tabBarItem = .init(title: "Избранное", image: UIImage(systemName: "heart"), tag: 3)
         
         setViewControllers([nav1, nav2, nav3], animated: true)
     }

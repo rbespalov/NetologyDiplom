@@ -15,6 +15,8 @@ class NDAuthorisationViewController: UIViewController {
         super.viewDidLoad()
         view.addSubview(authView)
         setupConstraints()
+        view.backgroundColor = .systemBackground
+        authView.delegate = self
     }
 
     private func setupConstraints() {
@@ -25,5 +27,19 @@ class NDAuthorisationViewController: UIViewController {
             authView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
         ])
     }
+    
+}
+
+extension NDAuthorisationViewController: NDAuthorisationViewDelegate {
+    func didTapRegister() {
+        let regVC = NDRegisterUserViewController()
+        navigationController?.pushViewController(regVC, animated: true)
+    }
+    
+    func didTapSingUp() {
+        let singIN = NDSingInViewController()
+        navigationController?.pushViewController(singIN, animated: true)
+    }
+    
     
 }

@@ -10,11 +10,13 @@ import UIKit
 class NDRegisterUserViewController: UIViewController {
     
     private let registerView = NDRegisterUserView()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(registerView)
         setupConstraints()
+        view.backgroundColor = .systemBackground
+        registerView.delegate = self
     }
 
     private func setupConstraints() {
@@ -28,5 +30,15 @@ class NDRegisterUserViewController: UIViewController {
         ])
         
     }
+    
+}
+
+extension NDRegisterUserViewController: NDRegisterUserViewDelegate {
+    func userRegistred() {
+        let tabBarVC = NDTabBarController()
+        self.navigationController?.isNavigationBarHidden = true
+        navigationController?.setViewControllers([tabBarVC], animated: true)
+    }
+    
     
 }

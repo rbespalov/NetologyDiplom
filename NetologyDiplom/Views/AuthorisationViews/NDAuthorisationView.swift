@@ -7,7 +7,14 @@
 
 import UIKit
 
+protocol NDAuthorisationViewDelegate: AnyObject {
+    func didTapRegister()
+    func didTapSingUp()
+}
+
 class NDAuthorisationView: UIView {
+    
+    public weak var delegate: NDAuthorisationViewDelegate?
     
     private var logoImage: UIImageView = {
         let image = UIImageView(image: UIImage(named: "logo"))
@@ -22,6 +29,7 @@ class NDAuthorisationView: UIView {
        let button = UIButton()
         button.setTitle("ЗАРЕГИСТРИРОВАТЬСЯ", for: .normal)
         button.layer.cornerRadius = 15
+        button.addTarget(nil, action: #selector(didRegister), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .systemGreen
         return button
@@ -31,6 +39,7 @@ class NDAuthorisationView: UIView {
         let button = UIButton()
         button.setTitle("Уже есть аккаунт", for: .normal)
         button.setTitleColor(.label, for: .normal)
+        button.addTarget(nil, action: #selector(didTapSingIn), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -57,7 +66,6 @@ class NDAuthorisationView: UIView {
             logoImage.widthAnchor.constraint(equalToConstant: width),
             logoImage.heightAnchor.constraint(equalToConstant: width),
             
-            
             registerButton.topAnchor.constraint(equalTo: logoImage.bottomAnchor, constant: 50),
             registerButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 30),
             registerButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -30),
@@ -69,5 +77,13 @@ class NDAuthorisationView: UIView {
             singInButton.heightAnchor.constraint(equalToConstant: 50),
             
         ])
+    }
+    
+    @objc private func didTapSingIn() {
+        delegate?.didTapSingUp()
+    }
+    
+    @objc private func didRegister() {
+        delegate?.didTapRegister()
     }
 }

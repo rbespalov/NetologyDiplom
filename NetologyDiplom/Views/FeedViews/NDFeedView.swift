@@ -28,9 +28,6 @@ final class NDFeedView: UIView {
         setupConstraints()
         tableView.delegate = viewModel
         tableView.dataSource = viewModel
-        
-        
-        
     }
     
     required init?(coder: NSCoder) {

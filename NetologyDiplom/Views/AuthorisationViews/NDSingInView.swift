@@ -1,28 +1,27 @@
 //
-//  NDRegisterUserView.swift
+//  NDSingInView.swift
 //  NetologyDiplom
 //
-//  Created by Роман Беспалов on 12.02.2023.
+//  Created by Роман Беспалов on 18.02.2023.
 //
 
 import UIKit
-import FirebaseAuth
 
-protocol NDRegisterUserViewDelegate: AnyObject {
-    func userRegistred()
+protocol NDSingInViewDelegate: AnyObject {
+    func userSingIn()
 }
 
-class NDRegisterUserView: UIView {
-    
+class NDSingInView: UIView {
+
     private let authManager = NDAuthenticationManager.shared
     
-    private let viewModel = NDRegisterUserViewViewModel()
+    private let viewModel = NDSingInViewViewModel()
     
-    public weak var delegate: NDRegisterUserViewDelegate?
+    public weak var delegate: NDSingInViewDelegate?
     
-    private let registerLabel: UILabel = {
+    private let singInLabel: UILabel = {
        let label = UILabel()
-        label.text = "ЗАРЕГИСТРИРОВАТЬСЯ"
+        label.text = "ВОЙТИ"
         label.textColor = .label
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -98,9 +97,9 @@ class NDRegisterUserView: UIView {
         return stackView
     }()
     
-    private var registerButton: UIButton = {
+    private var singInButton: UIButton = {
        let button = UIButton()
-        button.setTitle("ЗАРЕГИСТРИРОВАТЬСЯ", for: .normal)
+        button.setTitle("ВОЙТИ", for: .normal)
         button.layer.cornerRadius = 10
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .systemGreen
@@ -112,7 +111,7 @@ class NDRegisterUserView: UIView {
         super.init(frame: frame)
         backgroundColor = .systemBackground
         translatesAutoresizingMaskIntoConstraints = false
-        addSubviews(registerLabel,stackView,registerButton)
+        addSubviews(singInLabel,stackView,singInButton)
         setupConstraints()
         viewModel.delegate = self
         
@@ -126,18 +125,18 @@ class NDRegisterUserView: UIView {
     private func setupConstraints() {
         
         NSLayoutConstraint.activate([
-            registerLabel.topAnchor.constraint(equalTo: topAnchor, constant: 30),
-            registerLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            singInLabel.topAnchor.constraint(equalTo: topAnchor, constant: 30),
+            singInLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             
-            stackView.topAnchor.constraint(equalTo: registerLabel.bottomAnchor, constant: 30),
+            stackView.topAnchor.constraint(equalTo: singInLabel.bottomAnchor, constant: 30),
             stackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 20),
             stackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -20),
             stackView.heightAnchor.constraint(equalToConstant: 100),
             
-            registerButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 15),
-            registerButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 20),
-            registerButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -20),
-            registerLabel.heightAnchor.constraint(equalToConstant: 50),
+            singInButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 15),
+            singInButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 20),
+            singInButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -20),
+            singInLabel.heightAnchor.constraint(equalToConstant: 50),
         ])
         
     }
@@ -145,12 +144,15 @@ class NDRegisterUserView: UIView {
     @objc private func register() {
         loginTextField.endEditing(true)
         passwordTextField.endEditing(true)
-        viewModel.registerUser()
+        viewModel.singInUser()
     }
+    
 }
 
-extension NDRegisterUserView: NDRegisterUserViewViewModelDelegate {
-    func userRegistred() {
-        delegate?.userRegistred()
+extension NDSingInView: NDSingInViewViewModelDelegate {
+    func userSingIn() {
+        delegate?.userSingIn()
     }
+    
+    
 }

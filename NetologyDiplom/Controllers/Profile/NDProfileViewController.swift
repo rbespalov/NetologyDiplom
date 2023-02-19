@@ -32,7 +32,7 @@ final class NDProfileViewController: UIViewController {
         
         let leftItem: UILabel = {
             let label = UILabel()
-            label.text = "rick_sanchez"
+            label.text = NDUserManager.shared.currentUser.login
             return label
         }()
         

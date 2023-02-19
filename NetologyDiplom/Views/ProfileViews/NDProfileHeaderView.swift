@@ -33,17 +33,23 @@ class NDProfileHeaderView: UIView {
         return label
     }()
     
-    private var exclamationImage: UIImageView = {
-       let image = UIImageView(image: UIImage(systemName: "exclamationmark.circle.fill"))
-        image.translatesAutoresizingMaskIntoConstraints = false
-        return image
+    private var exclamationImage: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "exclamationmark.circle.fill"), for: .normal)
+        button.addTarget(nil, action: #selector(showDetailed), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
     }()
     
-    private var detailedInformation: UILabel = {
-        let label = UILabel()
-        label.text = "Подробная информация"
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+    private lazy var detailedInformation: UIButton = {
+        let button = UIButton()
+        button.setTitle("Подробная информация", for: .normal)
+        button.setTitleColor(.label, for: .normal)
+        button.addTarget(nil, action: #selector(showDetailed), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.isUserInteractionEnabled = true
+
+        return button
     }()
     
     private var editDetailedInfoButton: UIButton = {
@@ -51,6 +57,7 @@ class NDProfileHeaderView: UIView {
         button.setTitle("Редактировать", for: .normal)
         button.backgroundColor = .systemGreen
         button.layer.cornerRadius = 10
+        button.isUserInteractionEnabled = true
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -274,11 +281,12 @@ class NDProfileHeaderView: UIView {
         super.init(frame: frame)
         backgroundColor = .systemGray5
         
+        
         addSubviews(avatar, name, status, detailedInformation, exclamationImage, editDetailedInfoButton, numberOfPostsStackView, numberOfSubscribersStackView, numberOfSubscriptionsStackView, separator, noteStackView, storyStackView, photoStackView,
         myPhotoCount, myPhotosLabel, goToMyPhotoButton, myPostsStackView, collectionView)
         
         setupConstraints()
-        testSetup()
+        setUpView()
         collectionView.delegate = viewModel
         collectionView.dataSource = viewModel
     }
@@ -355,10 +363,15 @@ class NDProfileHeaderView: UIView {
         ])
     }
     
-    private func testSetup() {
+    private func setUpView() {
+        
         avatar.image = UIImage(named: "rick")
-        name.text = "Rick Sanchez"
         status.text = "WabbalaabbaDubDub"
+        
+        name.text = viewModel.currentUser.nickName
     }
-
+    
+    @objc private func showDetailed() {
+        print ("detail")
+    }
 }

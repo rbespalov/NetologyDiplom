@@ -28,6 +28,32 @@ class NDRegisterUserView: UIView {
         return label
     }()
     
+    private lazy var userNameTextFIeld: UITextField = {
+
+        let userNameTextFIeld = UITextField()
+        
+        userNameTextFIeld.translatesAutoresizingMaskIntoConstraints = false
+        
+        userNameTextFIeld.placeholder = "Name"
+        userNameTextFIeld.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: userNameTextFIeld.frame.height))
+        userNameTextFIeld.leftViewMode = .always
+        userNameTextFIeld.textColor = .black
+        userNameTextFIeld.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        userNameTextFIeld.tintColor = UIColor(named: "AccentColor")
+        userNameTextFIeld.autocapitalizationType = .none
+        userNameTextFIeld.backgroundColor = .systemGray6
+        
+        userNameTextFIeld.layer.borderColor = UIColor.lightGray.cgColor
+        userNameTextFIeld.layer.borderWidth = 0.5
+        userNameTextFIeld.returnKeyType = UIReturnKeyType.done
+        userNameTextFIeld.autocorrectionType = .no
+        userNameTextFIeld.keyboardType = .emailAddress
+        
+        userNameTextFIeld.delegate = viewModel
+            
+        return userNameTextFIeld
+    }()
+    
     private lazy var loginTextField: UITextField = {
 
         let loginTextField = UITextField()
@@ -92,6 +118,7 @@ class NDRegisterUserView: UIView {
         stackView.distribution = .fillEqually
         stackView.alignment = .fill
 
+        stackView.addArrangedSubview(userNameTextFIeld)
         stackView.addArrangedSubview(loginTextField)
         stackView.addArrangedSubview(passwordTextField)
 
@@ -132,7 +159,7 @@ class NDRegisterUserView: UIView {
             stackView.topAnchor.constraint(equalTo: registerLabel.bottomAnchor, constant: 30),
             stackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 20),
             stackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -20),
-            stackView.heightAnchor.constraint(equalToConstant: 100),
+            stackView.heightAnchor.constraint(equalToConstant: 150),
             
             registerButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 15),
             registerButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 20),
@@ -145,6 +172,7 @@ class NDRegisterUserView: UIView {
     @objc private func register() {
         loginTextField.endEditing(true)
         passwordTextField.endEditing(true)
+        userNameTextFIeld.endEditing(true)
         viewModel.registerUser()
     }
 }

@@ -10,6 +10,8 @@ import UIKit
 
 final class NDProfileHeaderViewViewModel: NSObject {
     
+    public var currentUser = NDUserManager.shared.currentUser
+        
     private var photos: [NDProfileHeaderViewCollectionViewCellViewModel] = [
         NDProfileHeaderViewCollectionViewCellViewModel(photoImage: "user"),
         NDProfileHeaderViewCollectionViewCellViewModel(photoImage: "rick"),
@@ -19,7 +21,6 @@ final class NDProfileHeaderViewViewModel: NSObject {
         NDProfileHeaderViewCollectionViewCellViewModel(photoImage: "rick"),
         NDProfileHeaderViewCollectionViewCellViewModel(photoImage: "user"),
     ]
-    
 }
 
 extension NDProfileHeaderViewViewModel: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {

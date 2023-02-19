@@ -16,8 +16,11 @@ final class NDRegisterUserViewViewModel: NSObject {
     
     private let authManager = NDAuthenticationManager.shared
     
+    private let dataBaseManager = NDFirestroreManager.shared
+    
     public weak var delegate: NDRegisterUserViewViewModelDelegate?
     
+    private var name: String = ""
     private var email: String = ""
     private var password: String = ""
     
@@ -28,7 +31,8 @@ final class NDRegisterUserViewViewModel: NSObject {
             case .success:
                 print("OK")
                 self.delegate?.userRegistred()
-                //push tavBar
+                self.dataBaseManager.createUser(userLogin: self.email, password: self.password, userName: self.name)
+                self.dataBaseManager.getCurrentUser(userLogin: self.email)
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -47,6 +51,11 @@ extension NDRegisterUserViewViewModel: UITextFieldDelegate {
         if textField.placeholder == "Password" {
             guard let pass = textField.text else {return}
             password = pass
+        }
+        
+        if textField.placeholder == "Name" {
+            guard let name = textField.text else {return}
+            self.name = name
         }
     }
     

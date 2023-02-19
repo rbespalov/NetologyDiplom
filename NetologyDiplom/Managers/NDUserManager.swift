@@ -8,9 +8,9 @@
 import Foundation
 
 final class NDUserManager {
-//    public let shared = NDUserManager()
-//    private init(){}
-//    
-//    public var currentUser: NDUserModel
+    static let shared = NDUserManager()
+    private init(){}
+    
+    public var currentUser = NDUserModel(nickName: "not logined", login: "not logined")
     
 }

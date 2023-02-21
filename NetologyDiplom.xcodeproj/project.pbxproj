@@ -53,6 +53,9 @@
 		D69779D329A118C400583AE3 /* NDUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69779D229A118C400583AE3 /* NDUserManager.swift */; };
 		D69779D529A12C5B00583AE3 /* NDSingInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69779D429A12C5B00583AE3 /* NDSingInView.swift */; };
 		D69779D729A12DFF00583AE3 /* NDSingInViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69779D629A12DFF00583AE3 /* NDSingInViewViewModel.swift */; };
+		D698FB3729A533CC009C70BC /* NDNewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D698FB3629A533CC009C70BC /* NDNewPostViewController.swift */; };
+		D698FB3929A53405009C70BC /* NDNewPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D698FB3829A53405009C70BC /* NDNewPostView.swift */; };
+		D698FB3B29A54282009C70BC /* NDNewPostViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D698FB3A29A54282009C70BC /* NDNewPostViewViewModel.swift */; };
 		D6FFA03E29A14D6D00A9F569 /* NDFirestroreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FFA03D29A14D6D00A9F569 /* NDFirestroreManager.swift */; };
 		D6FFA04129A2645500A9F569 /* NDDetailedUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FFA04029A2645500A9F569 /* NDDetailedUserInfoViewController.swift */; };
 		D6FFA04329A264C700A9F569 /* NDDetailedInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FFA04229A264C700A9F569 /* NDDetailedInfoView.swift */; };
@@ -104,6 +107,9 @@
 		D69779D229A118C400583AE3 /* NDUserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDUserManager.swift; sourceTree = "<group>"; };
 		D69779D429A12C5B00583AE3 /* NDSingInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDSingInView.swift; sourceTree = "<group>"; };
 		D69779D629A12DFF00583AE3 /* NDSingInViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDSingInViewViewModel.swift; sourceTree = "<group>"; };
+		D698FB3629A533CC009C70BC /* NDNewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDNewPostViewController.swift; sourceTree = "<group>"; };
+		D698FB3829A53405009C70BC /* NDNewPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDNewPostView.swift; sourceTree = "<group>"; };
+		D698FB3A29A54282009C70BC /* NDNewPostViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDNewPostViewViewModel.swift; sourceTree = "<group>"; };
 		D6FFA03D29A14D6D00A9F569 /* NDFirestroreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDFirestroreManager.swift; sourceTree = "<group>"; };
 		D6FFA04029A2645500A9F569 /* NDDetailedUserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDDetailedUserInfoViewController.swift; sourceTree = "<group>"; };
 		D6FFA04229A264C700A9F569 /* NDDetailedInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDDetailedInfoView.swift; sourceTree = "<group>"; };
@@ -233,6 +239,7 @@
 				D639ACF72997F64B00E80D62 /* NDProfileHeaderView.swift */,
 				D6746DEB29990062005E5584 /* NDProfileHeaderViewCollectionViewCell.swift */,
 				D6FFA04229A264C700A9F569 /* NDDetailedInfoView.swift */,
+				D698FB3829A53405009C70BC /* NDNewPostView.swift */,
 			);
 			path = ProfileViews;
 			sourceTree = "<group>";
@@ -244,6 +251,7 @@
 				D639ACF92997F83600E80D62 /* NDProfileHeaderViewViewModel.swift */,
 				D6746DED2999045F005E5584 /* NDProfileHeaderViewCollectionViewCellViewModel.swift */,
 				D6FFA04429A2837900A9F569 /* NDDetailedInfoViewViewModel.swift */,
+				D698FB3A29A54282009C70BC /* NDNewPostViewViewModel.swift */,
 			);
 			path = ProfileViewModels;
 			sourceTree = "<group>";
@@ -303,6 +311,7 @@
 			children = (
 				D639ACC22991478600E80D62 /* NDProfileViewController.swift */,
 				D6FFA04029A2645500A9F569 /* NDDetailedUserInfoViewController.swift */,
+				D698FB3629A533CC009C70BC /* NDNewPostViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -387,6 +396,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D698FB3B29A54282009C70BC /* NDNewPostViewViewModel.swift in Sources */,
 				D639ACDA2991541600E80D62 /* NDFeedView.swift in Sources */,
 				D605909F2999671C00C53D7C /* NDAuthorisationViewController.swift in Sources */,
 				D6FFA04329A264C700A9F569 /* NDDetailedInfoView.swift in Sources */,
@@ -396,6 +406,7 @@
 				D60590A42999672F00C53D7C /* NDAuthorisationView.swift in Sources */,
 				D639ACE629940B3F00E80D62 /* NDDetailedUserInfo.swift in Sources */,
 				D639ACEE2997C9F100E80D62 /* NDFeedHeaderViewCollectionViewCell.swift in Sources */,
+				D698FB3729A533CC009C70BC /* NDNewPostViewController.swift in Sources */,
 				D639ACEC2997C49200E80D62 /* NDFeedHeaderView.swift in Sources */,
 				D60590A32999672F00C53D7C /* NDRegisterUserView.swift in Sources */,
 				D639ACF82997F64B00E80D62 /* NDProfileHeaderView.swift in Sources */,
@@ -425,6 +436,7 @@
 				D67D1BB7299142CF00385265 /* AppDelegate.swift in Sources */,
 				D69779D729A12DFF00583AE3 /* NDSingInViewViewModel.swift in Sources */,
 				D639ACCB2991531D00E80D62 /* NDUserModel.swift in Sources */,
+				D698FB3929A53405009C70BC /* NDNewPostView.swift in Sources */,
 				D639ACF62997F5F700E80D62 /* NDProfileTableHeaderView.swift in Sources */,
 				D639ACF02997CBAA00E80D62 /* NDFeedHeadViewCollectionViewViewModel.swift in Sources */,
 				D67D1BB9299142CF00385265 /* SceneDelegate.swift in Sources */,

@@ -11,11 +11,13 @@ final class NDProfileViewController: UIViewController {
     
     private let profileView = NDProfileView()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         setUpView()
         stupNavigationBar()
+        profileView.delegate = self
     }
     
     private func setUpView() {
@@ -47,4 +49,13 @@ final class NDProfileViewController: UIViewController {
         navigationItem.rightBarButtonItem = rightBarItem
         navigationItem.leftBarButtonItem = lefBarItem
     }
+}
+
+extension NDProfileViewController: NDProfileViewDelegate {
+    
+    func didTapDetailUserInfo() {
+        let vc = NDDetailedUserInfoViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+
 }

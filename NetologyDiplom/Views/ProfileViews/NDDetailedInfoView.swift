@@ -25,8 +25,12 @@ class NDDetailedInfoView: UIView {
         textFIeld.tag = 1
         textFIeld.translatesAutoresizingMaskIntoConstraints = false
         textFIeld.placeholder = "имя"
+        
+        textFIeld.text = viewModel.firstName
+        
         textFIeld.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: textFIeld.frame.height))
         textFIeld.leftViewMode = .always
+        
         textFIeld.textColor = .systemGray2
         textFIeld.autocapitalizationType = .none
         textFIeld.backgroundColor = .systemGray6
@@ -55,6 +59,9 @@ class NDDetailedInfoView: UIView {
         textFIeld.tag = 2
         textFIeld.translatesAutoresizingMaskIntoConstraints = false
         textFIeld.placeholder = "фамилия"
+        
+        textFIeld.text = viewModel.secondName
+        
         textFIeld.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: textFIeld.frame.height))
         textFIeld.leftViewMode = .always
         textFIeld.textColor = .systemGray2
@@ -82,7 +89,7 @@ class NDDetailedInfoView: UIView {
     
     private lazy var maleCheckmark: UIImageView = {
         let imageView = UIImageView(image: UIImage(systemName: "circle"))
-        imageView.tintColor = .black
+        imageView.tintColor = .systemGray2
         imageView.translatesAutoresizingMaskIntoConstraints = false
         let gesture = UITapGestureRecognizer(target: self, action: #selector(tapMale))
         imageView.addGestureRecognizer(gesture)
@@ -92,7 +99,7 @@ class NDDetailedInfoView: UIView {
     
     private lazy var feemaleCheckmark: UIImageView = {
         let imageView = UIImageView(image: UIImage(systemName: "circle"))
-        imageView.tintColor = .black
+        imageView.tintColor = .systemGray2
         imageView.translatesAutoresizingMaskIntoConstraints = false
         let gesture = UITapGestureRecognizer(target: self, action: #selector(tapFeemale))
         imageView.addGestureRecognizer(gesture)
@@ -130,6 +137,9 @@ class NDDetailedInfoView: UIView {
         textFIeld.tag = 3
         textFIeld.translatesAutoresizingMaskIntoConstraints = false
         textFIeld.placeholder = "ваша дата рождения"
+        
+        textFIeld.text = viewModel.birthDate
+        
         textFIeld.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: textFIeld.frame.height))
         textFIeld.leftViewMode = .always
         textFIeld.textColor = .systemGray2
@@ -160,7 +170,10 @@ class NDDetailedInfoView: UIView {
         let textFIeld = UITextField()
         textFIeld.tag = 4
         textFIeld.translatesAutoresizingMaskIntoConstraints = false
-        textFIeld.placeholder = " введите город"
+        textFIeld.placeholder = "введите город"
+        
+        textFIeld.text = viewModel.homeTown
+
         textFIeld.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: textFIeld.frame.height))
         textFIeld.leftViewMode = .always
         textFIeld.textColor = .systemGray2
@@ -184,6 +197,9 @@ class NDDetailedInfoView: UIView {
         backgroundColor = .orange
         addSubviews(nameLabel, nameTextField, secondNameLabel, secondNameTextField, genderLabel, maleLabel, maleCheckmark, feemaleLabel, feemaleCheckmark, birthDateLabel, birthDateTextField, homeTownLabel, homeTownTextField)
         setUpConstraints()
+        
+        setupTextFields()
+        setupGenderCheckmark()
     }
     
     required init?(coder: NSCoder) {
@@ -259,5 +275,38 @@ class NDDetailedInfoView: UIView {
         maleCheckmark.image = UIImage(systemName: "circle")
         maleCheckmark.tintColor = .systemGray2
         NDUserManager.shared.currentUser.gender = "feemale"
+    }
+    
+    private func setupTextFields() {
+        
+        if nameTextField.text != "" {
+            nameTextField.textColor = .label
+        }
+        
+        if secondNameTextField.text != "" {
+            secondNameTextField.textColor = .label
+        }
+        
+        if birthDateTextField.text != "" {
+            birthDateTextField.textColor = .label
+        }
+        
+        if homeTownTextField.text != "" {
+            homeTownTextField.textColor = .label
+        }
+    }
+    
+    private func setupGenderCheckmark() {
+        if viewModel.gender == "male" {
+            maleCheckmark.image = UIImage(systemName: "smallcircle.filled.circle")
+            maleCheckmark.tintColor = .systemGreen
+        }
+        
+        if viewModel.gender == "feemale" {
+            feemaleCheckmark.image = UIImage(systemName: "smallcircle.filled.circle")
+            feemaleCheckmark.tintColor = .systemGreen
+        }
+        
+        
     }
 }

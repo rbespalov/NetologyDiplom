@@ -7,9 +7,15 @@
 
 import UIKit
 
+protocol NDProfileTableHeaderViewDelegate: AnyObject {
+    func didTapDetailUserInfo()
+}
+
 class NDProfileTableHeaderView: UITableViewHeaderFooterView {
 
     static let headeridentifier = "NDProfileTableHeaderView"
+    
+    public weak var delegate: NDProfileTableHeaderViewDelegate?
     
     private var headerView: NDProfileHeaderView = {
         let view = NDProfileHeaderView()
@@ -21,6 +27,8 @@ class NDProfileTableHeaderView: UITableViewHeaderFooterView {
         super.init(reuseIdentifier: reuseIdentifier)
         addSubview(headerView)
         setupConstraint()
+        
+        headerView.delegate = self
         
     }
     
@@ -34,8 +42,16 @@ class NDProfileTableHeaderView: UITableViewHeaderFooterView {
             headerView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
             headerView.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor),
             headerView.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor),
-
         ])
     }
 
+}
+
+
+extension NDProfileTableHeaderView: NDProfileHeaderViewDelegate {
+    func didTapDetailUserInfo() {
+        delegate?.didTapDetailUserInfo()
+    }
+    
+    
 }

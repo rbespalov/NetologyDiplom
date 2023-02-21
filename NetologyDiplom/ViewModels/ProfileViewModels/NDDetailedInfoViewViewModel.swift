@@ -9,10 +9,14 @@ import Foundation
 import UIKit
 
 final class NDDetailedInfoViewViewModel: NSObject {
-    let userManager = NDUserManager.shared
-    let fireStore = NDFirestroreManager.shared
+    private let userManager = NDUserManager.shared
+    private let fireStore = NDFirestroreManager.shared
     
-    
+    public var firstName = NDUserManager.shared.currentUser.firstName
+    public var secondName = NDUserManager.shared.currentUser.secondName
+    public var birthDate = NDUserManager.shared.currentUser.birthDate
+    public var homeTown = NDUserManager.shared.currentUser.homeTown
+    public var gender = NDUserManager.shared.currentUser.gender
 }
 
 extension NDDetailedInfoViewViewModel: UITextFieldDelegate {
@@ -48,7 +52,7 @@ extension NDDetailedInfoViewViewModel: UITextFieldDelegate {
             fireStore.setDataForUser(userLogin: userManager.currentUser.login, dataType: "homeTown", dataValue: text)
             textField.text = text
             textField.textColor = .label
-            userManager.currentUser.birthDate = text
+            userManager.currentUser.homeTown = text
         }
     }
 }

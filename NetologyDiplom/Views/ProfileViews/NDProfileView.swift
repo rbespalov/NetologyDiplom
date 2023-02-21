@@ -7,9 +7,15 @@
 
 import UIKit
 
+protocol NDProfileViewDelegate: AnyObject {
+    func didTapDetailUserInfo()
+}
+
 final class NDProfileView: UIView {
     
     private let viewModel = NDProfileViewViewModel()
+    
+    public weak var delegate: NDProfileViewDelegate?
     
     private let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
@@ -28,6 +34,7 @@ final class NDProfileView: UIView {
         setupConstraints()
         tableView.delegate = viewModel
         tableView.dataSource = viewModel
+        viewModel.delegate = self
         
         
         
@@ -46,4 +53,10 @@ final class NDProfileView: UIView {
         ])
     }
     
+}
+
+extension NDProfileView: NDProfileViewViewModelDelegate {
+    func didTapDetailUserInfo() {
+        delegate?.didTapDetailUserInfo()
+    }
 }

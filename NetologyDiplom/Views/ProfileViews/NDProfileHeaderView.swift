@@ -7,9 +7,15 @@
 
 import UIKit
 
+protocol NDProfileHeaderViewDelegate: AnyObject {
+    func didTapDetailUserInfo()
+}
+
 class NDProfileHeaderView: UIView {
     
-    let viewModel = NDProfileHeaderViewViewModel()
+    private let viewModel = NDProfileHeaderViewViewModel()
+    
+    public weak var delegate: NDProfileHeaderViewDelegate?
     
     private var avatar: UIImageView = {
         let imageView = UIImageView()
@@ -33,10 +39,10 @@ class NDProfileHeaderView: UIView {
         return label
     }()
     
-    private var exclamationImage: UIButton = {
+    private lazy var exclamationImage: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "exclamationmark.circle.fill"), for: .normal)
-        button.addTarget(nil, action: #selector(showDetailed), for: .touchUpInside)
+        button.addTarget(self, action: #selector(showDetailed), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -45,7 +51,7 @@ class NDProfileHeaderView: UIView {
         let button = UIButton()
         button.setTitle("Подробная информация", for: .normal)
         button.setTitleColor(.label, for: .normal)
-        button.addTarget(nil, action: #selector(showDetailed), for: .touchUpInside)
+        button.addTarget(self, action: #selector(showDetailed), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.isUserInteractionEnabled = true
 
@@ -372,6 +378,6 @@ class NDProfileHeaderView: UIView {
     }
     
     @objc private func showDetailed() {
-        print ("detail")
+        delegate?.didTapDetailUserInfo()
     }
 }

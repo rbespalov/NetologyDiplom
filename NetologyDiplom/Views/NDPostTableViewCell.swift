@@ -179,16 +179,21 @@ class NDPostTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
     }
+    
+    
 
     
     public func configure(with viewModel: NDPostTableViewCellViewModel) {
         authorName.text = viewModel.authorName
         authorStatus.text = viewModel.authorStatus
-        authorAvatar.image = UIImage(named: viewModel.authorAvatar)
+//        поправить опционал аватара
+//        authorAvatar.image = UIImage(named: viewModel.authorAvatar ?? "")
+        authorAvatar.image = viewModel.authorAvatar
         postText.text = viewModel.postText
         numberOfComments.text = String(viewModel.numberOfComments)
         numberOfLikes.text = String(viewModel.numberOfLikes)
-        postImage.image = UIImage(named: viewModel.postImage)
+//        postImage.image = UIImage(named: viewModel.postImage)
+        postImage.image = viewModel.postImage
         
         let df = DateFormatter()
         df.dateFormat = "dd.MM.yy"

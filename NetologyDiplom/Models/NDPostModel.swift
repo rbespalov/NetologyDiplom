@@ -7,16 +7,13 @@
 
 import Foundation
 
-struct NDPostModel {
-//    let ID: String = UUID().uuidString
+struct NDPostModel: Codable {
     var authorName: String
-    var authorAvatar: String
+    var authorAvatar: String?
     var authorStatus: String
     var postText: String
     var postImage: String
-    var numberOfLikes: Int
-    var numberOfComments: Int
-    var postDate: Date
-//    var comments: [NDCommentModel]
-    
+    var numberOfLikes: Int = Int.random(in: 1..<100)
+    var numberOfComments: Int = Int.random(in: 1..<100)
+    var postDate: Date = .now
 }

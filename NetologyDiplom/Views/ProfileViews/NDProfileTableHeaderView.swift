@@ -9,6 +9,7 @@ import UIKit
 
 protocol NDProfileTableHeaderViewDelegate: AnyObject {
     func didTapDetailUserInfo()
+    func createPost()
 }
 
 class NDProfileTableHeaderView: UITableViewHeaderFooterView {
@@ -49,9 +50,15 @@ class NDProfileTableHeaderView: UITableViewHeaderFooterView {
 
 
 extension NDProfileTableHeaderView: NDProfileHeaderViewDelegate {
+    func createPost() {
+        delegate?.createPost()
+    }
+    
     func didTapDetailUserInfo() {
         delegate?.didTapDetailUserInfo()
     }
+    
+    
     
     
 }

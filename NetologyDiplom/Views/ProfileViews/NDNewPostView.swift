@@ -6,17 +6,24 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 protocol NDNewPostViewDelegate: AnyObject {
     func showPicker(picker: UIImagePickerController)
+    func tapPost()
+    
 }
 
 class NDNewPostView: UIView {
     
+    private var currentUser = NDUserManager.shared.currentUser
+    
+    private let fireStore = NDFirestroreManager.shared
+    
     private let viewModel = NDNewPostViewViewModel()
     
     public weak var delegate: NDNewPostViewDelegate?
-    
+        
     private var postTextLabel: UILabel = {
        let label = UILabel()
         label.text = "Ваш пост"
@@ -43,10 +50,11 @@ class NDNewPostView: UIView {
         return button
     }()
     
-    private var createPostButton: UIButton = {
+    private lazy var createPostButton: UIButton = {
         let button = UIButton()
         button.setTitle("Опубликовать", for: .normal)
         button.backgroundColor = .systemGreen
+        button.addTarget(self, action: #selector(createPost), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -103,6 +111,28 @@ class NDNewPostView: UIView {
         picker.delegate = viewModel
         delegate?.showPicker(picker: picker)
     }
+    
+    @objc private func createPost() {
+        
+        guard let postImageURL = viewModel.postImageURL else { print("post image URL = nil"); return}
+
+        let newPost = NDPostModel(
+            authorName: currentUser.login,
+            authorAvatar: nil,
+            authorStatus: currentUser.status,
+            postText: viewModel.postText,
+            postImage: postImageURL.absoluteString)
+
+//        currentUser.posts.append(newPost)
+        
+
+        fireStore.createUserPost(author: currentUser, post: newPost)
+        currentUser.posts.append(newPost)
+
+                
+        delegate?.tapPost()
+                        
+    }
 }
 
 extension NDNewPostView: NDNewPostViewViewModelDelegate {
@@ -111,8 +141,5 @@ extension NDNewPostView: NDNewPostViewViewModelDelegate {
             self.imagePickerButton.setImage(image, for: .normal)
         }
     }
-    
-
-    
-    
 }
+

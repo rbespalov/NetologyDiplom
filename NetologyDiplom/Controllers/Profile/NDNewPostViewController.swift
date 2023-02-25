@@ -7,10 +7,12 @@
 
 import UIKit
 
+
+
 class NDNewPostViewController: UIViewController {
     
     private var newPostView = NDNewPostView()
-
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(newPostView)
@@ -30,6 +32,10 @@ class NDNewPostViewController: UIViewController {
 }
 
 extension NDNewPostViewController: NDNewPostViewDelegate {
+    func tapPost() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     func showPicker(picker: UIImagePickerController) {
         present(picker, animated: true)
     }

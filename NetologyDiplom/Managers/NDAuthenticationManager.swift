@@ -22,7 +22,10 @@ enum AuthError {
 }
 
 extension AuthError: LocalizedError {
+    
+    
     var errorDescription: String? {
+
         switch self {
         case .notFilled:
             return NSLocalizedString("Заполните все поля", comment: "")
@@ -41,6 +44,9 @@ extension AuthError: LocalizedError {
 
 final class NDAuthenticationManager {
     static let shared = NDAuthenticationManager()
+    
+//    private let dataBaseManager = NDFirestroreManager.shared
+    
     private init() {}
     
     public func createUser(
@@ -87,7 +93,6 @@ final class NDAuthenticationManager {
             }
             
             completion(.success)
-            
         }
     }
 }

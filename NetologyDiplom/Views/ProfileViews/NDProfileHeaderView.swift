@@ -9,6 +9,7 @@ import UIKit
 
 protocol NDProfileHeaderViewDelegate: AnyObject {
     func didTapDetailUserInfo()
+    func createPost()
 }
 
 class NDProfileHeaderView: UIView {
@@ -150,7 +151,7 @@ class NDProfileHeaderView: UIView {
         return view
     }()
     
-    private var noteLabel: UILabel = {
+    private var postLabel: UILabel = {
         let label = UILabel()
         label.text = "Запись"
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -190,14 +191,16 @@ class NDProfileHeaderView: UIView {
         return image
     }()
     
-    private lazy var noteStackView: UIStackView = {
+    private lazy var postStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.distribution = .equalCentering
         stackView.alignment = .center
         stackView.addArrangedSubview(noteimage)
-        stackView.addArrangedSubview(noteLabel)
+        stackView.addArrangedSubview(postLabel)
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(createPost))
+        stackView.addGestureRecognizer(gesture)
         return stackView
     }()
     
@@ -288,7 +291,7 @@ class NDProfileHeaderView: UIView {
         backgroundColor = .systemGray5
         
         
-        addSubviews(avatar, name, status, detailedInformation, exclamationImage, editDetailedInfoButton, numberOfPostsStackView, numberOfSubscribersStackView, numberOfSubscriptionsStackView, separator, noteStackView, storyStackView, photoStackView,
+        addSubviews(avatar, name, status, detailedInformation, exclamationImage, editDetailedInfoButton, numberOfPostsStackView, numberOfSubscribersStackView, numberOfSubscriptionsStackView, separator, postStackView, storyStackView, photoStackView,
         myPhotoCount, myPhotosLabel, goToMyPhotoButton, myPostsStackView, collectionView)
         
         setupConstraints()
@@ -339,8 +342,8 @@ class NDProfileHeaderView: UIView {
             separator.rightAnchor.constraint(equalTo: rightAnchor, constant: -20),
             separator.heightAnchor.constraint(equalToConstant: 1),
             
-            noteStackView.topAnchor.constraint(equalTo: separator.bottomAnchor, constant: 10),
-            noteStackView.centerXAnchor.constraint(equalTo: numberOfPosts.centerXAnchor),
+            postStackView.topAnchor.constraint(equalTo: separator.bottomAnchor, constant: 10),
+            postStackView.centerXAnchor.constraint(equalTo: numberOfPosts.centerXAnchor),
             
             storyStackView.topAnchor.constraint(equalTo: separator.bottomAnchor, constant: 10),
             storyStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
@@ -348,13 +351,13 @@ class NDProfileHeaderView: UIView {
             photoStackView.topAnchor.constraint(equalTo: separator.bottomAnchor, constant: 10),
             photoStackView.centerXAnchor.constraint(equalTo: numberOfSubscribersStackView.centerXAnchor),
             
-            myPhotosLabel.topAnchor.constraint(equalTo: noteStackView.bottomAnchor, constant: 20),
+            myPhotosLabel.topAnchor.constraint(equalTo: postStackView.bottomAnchor, constant: 20),
             myPhotosLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 20),
             
-            myPhotoCount.topAnchor.constraint(equalTo: noteStackView.bottomAnchor, constant: 20),
+            myPhotoCount.topAnchor.constraint(equalTo: postStackView.bottomAnchor, constant: 20),
             myPhotoCount.leftAnchor.constraint(equalTo: myPhotosLabel.rightAnchor, constant: 5),
             
-            goToMyPhotoButton.topAnchor.constraint(equalTo: noteStackView.bottomAnchor, constant: 20),
+            goToMyPhotoButton.topAnchor.constraint(equalTo: postStackView.bottomAnchor, constant: 20),
             goToMyPhotoButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -20),
             
             collectionView.topAnchor.constraint(equalTo: myPhotosLabel.bottomAnchor, constant: 10),
@@ -379,5 +382,10 @@ class NDProfileHeaderView: UIView {
     
     @objc private func showDetailed() {
         delegate?.didTapDetailUserInfo()
+    }
+    
+    @objc private func createPost() {
+        delegate?.createPost()
+        
     }
 }

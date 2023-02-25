@@ -16,7 +16,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
 //        let tabBar = NDDetailedUserInfoViewController()
-        let tabBar = NDNewPostViewController()
+//        let tabBar = NDRegisterUserViewController()
+        let tabBar = NDSingInViewController()
+//        let tabBar = NDNewPostViewController()
 //        let tabBar = NDTabBarController()
         let nav = UINavigationController(rootViewController: tabBar)
         self.window = window

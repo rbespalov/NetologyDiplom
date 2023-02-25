@@ -11,6 +11,9 @@ final class NDUserManager {
     static let shared = NDUserManager()
     private init(){}
     
-    public var currentUser = NDUserModel(nickName: "not logined", login: "not logined")
+    public var currentUser = NDUserModel(nickName: "not logined", login: "not logined", posts: [], status: "Never Surrender")
+    
+
+//    public var currentUser: NDPostModel?
     
 }

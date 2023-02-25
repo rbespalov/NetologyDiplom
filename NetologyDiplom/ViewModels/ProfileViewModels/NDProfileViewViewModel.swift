@@ -10,26 +10,59 @@ import UIKit
 
 protocol NDProfileViewViewModelDelegate: AnyObject {
     func didTapDetailUserInfo()
+    func createPost()
+    
 }
 
 final class NDProfileViewViewModel: NSObject {
     
     public weak var delegate: NDProfileViewViewModelDelegate?
     
-    public var posts: [NDPostTableViewCellViewModel] = [
-        NDPostTableViewCellViewModel(authorName: "Adolf Linkler", authorAvatar: "user", authorStatus: "Galaktus", postText: "On June 11, 2021, the band returned with a new song titled To the Hellfire, and announced Ramos as their new permanent vocalist. They also announced details of their new EP; ...And I Return to Nothingness.[20] It is the band’s first EP since their breakthrough 2013 release Maleficium.", postImage: "rick", numberOfLikes: 13332, numberOfComments: 1231, postDate: .now
-        ),
-        NDPostTableViewCellViewModel(authorName: "Pako Sanchez", authorAvatar: "user", authorStatus: "El barto", postText: "On June 11, 2021, the band returned with a new song titled To the Hellfire, and announced Ramos as their new permanent vocalist. They also announced details of their new EP; ...And I Return to Nothingness.[20] It is the band’s first EP since their breakthrough 2013 release Maleficium.", postImage: "rick", numberOfLikes: 4342, numberOfComments: 223, postDate: .now
-        ),
-        NDPostTableViewCellViewModel(authorName: "Morty Smith", authorAvatar: "user", authorStatus: "Okaaaay", postText: "On June 11, 2021, the band returned with a new song titled To the Hellfire, and announced Ramos as their new permanent vocalist. They also announced details of their new EP; ...And I Return to Nothingness.[20] It is the band’s first EP since their breakthrough 2013 release Maleficium.", postImage: "rick", numberOfLikes: 343, numberOfComments: 363, postDate: .now
-        ),
-    ]
+    public var posts: [NDPostModel] = [] {
+        didSet {
+            for post in posts {
+                let postViewModel = NDPostTableViewCellViewModel(
+                    authorName: post.authorName,
+                    authorAvatar: UIImage(named: "logo")!,
+                    authorStatus: post.authorStatus,
+                    postText: post.postText,
+                    postImage: UIImage(named: "rick")!,
+                    numberOfLikes: Int(post.numberOfLikes),
+                    numberOfComments: Int(post.numberOfComments),
+                    postDate: .now)
+
+                if !postViewModels.contains(postViewModel) {
+                    postViewModels.append(postViewModel)
+                }
+            }
+        }
+    }
+    
+//    private var posts: [NDPostModel] = NDUserManager.shared.currentUser.posts
+    
+    private var postViewModels: [NDPostTableViewCellViewModel] = []
+    
+    public func fetchPosts() {
+        NDFirestroreManager.shared.getPostsData { dict in
+            for dict in dict {
+                let singlePost = NDPostModel(
+                    authorName: dict["authorName"] as! String,
+                    authorStatus: dict["authorStatus"] as! String,
+                    postText: dict["postText"] as! String,
+                    postImage: dict["postImage"] as! String
+                )
+//                self.posts.append(singlePost)
+                NDUserManager.shared.currentUser.posts.append(singlePost)
+            }
+            self.posts = NDUserManager.shared.currentUser.posts
+        }
+    }
     
 }
 
 extension NDProfileViewViewModel: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count
+        return postViewModels.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -40,7 +73,9 @@ extension NDProfileViewViewModel: UITableViewDataSource, UITableViewDelegate {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: NDPostTableViewCell.cellIdentifier, for: indexPath) as? NDPostTableViewCell else {
             fatalError("Cell unsupported")
         }
-        cell.configure(with: posts[indexPath.row])
+        cell.configure(with: postViewModels[indexPath.row])
+        
+        
         
         return cell
     }
@@ -71,6 +106,10 @@ extension NDProfileViewViewModel: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension NDProfileViewViewModel: NDProfileTableHeaderViewDelegate {
+    func createPost() {
+        delegate?.createPost()
+    }
+    
     func didTapDetailUserInfo() {
         delegate?.didTapDetailUserInfo()
     }

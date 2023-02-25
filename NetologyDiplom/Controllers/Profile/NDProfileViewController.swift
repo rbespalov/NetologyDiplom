@@ -12,12 +12,15 @@ final class NDProfileViewController: UIViewController {
     private let profileView = NDProfileView()
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         setUpView()
         stupNavigationBar()
         profileView.delegate = self
+//        print(NDUserManager.shared.currentUser.login)
+
     }
     
     private func setUpView() {
@@ -52,10 +55,15 @@ final class NDProfileViewController: UIViewController {
 }
 
 extension NDProfileViewController: NDProfileViewDelegate {
+    func createPost() {
+        let vc = NDNewPostViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     
     func didTapDetailUserInfo() {
         let vc = NDDetailedUserInfoViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
-
 }
+

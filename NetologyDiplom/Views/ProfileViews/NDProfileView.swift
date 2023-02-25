@@ -9,6 +9,7 @@ import UIKit
 
 protocol NDProfileViewDelegate: AnyObject {
     func didTapDetailUserInfo()
+    func createPost()
 }
 
 final class NDProfileView: UIView {
@@ -16,7 +17,7 @@ final class NDProfileView: UIView {
     private let viewModel = NDProfileViewViewModel()
     
     public weak var delegate: NDProfileViewDelegate?
-    
+        
     private let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -35,11 +36,9 @@ final class NDProfileView: UIView {
         tableView.delegate = viewModel
         tableView.dataSource = viewModel
         viewModel.delegate = self
-        
-        
-        
+        viewModel.fetchPosts()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -56,7 +55,17 @@ final class NDProfileView: UIView {
 }
 
 extension NDProfileView: NDProfileViewViewModelDelegate {
+    
+    func createPost() {
+        delegate?.createPost()
+//        viewModel.posts = NDUserManager.shared.currentUser.posts
+//        viewModel.fetchPosts()
+    }
+    
     func didTapDetailUserInfo() {
         delegate?.didTapDetailUserInfo()
     }
 }
+
+
+

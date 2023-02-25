@@ -20,6 +20,12 @@ final class NDDetailedInfoViewViewModel: NSObject {
 }
 
 extension NDDetailedInfoViewViewModel: UITextFieldDelegate {
+    
+    
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        return true
+//    }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         
         

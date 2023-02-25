@@ -16,12 +16,22 @@ final class NDNewPostViewViewModel: NSObject {
     
     public weak var delegate: NDNewPostViewViewModelDelegate?
     
+    public var postText = ""
+    
+    public var postImageURL: URL?
+    
 }
 
 extension NDNewPostViewViewModel: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[.originalImage] as? UIImage else {return}
+        NDStorageManager.shared.upload(
+            photo: image,
+            userLogin: NDUserManager.shared.currentUser.login,
+            imageType: .postImage) { imageURL in
+                self.postImageURL = imageURL
+            }
         delegate?.imagePicked(image: image)
         picker.dismiss(animated: true)
     }
@@ -31,7 +41,9 @@ extension NDNewPostViewViewModel: UIImagePickerControllerDelegate, UINavigationC
 extension NDNewPostViewViewModel: UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        print(textView.text)
+        guard let text = textView.text else { return }
+        
+        postText = text
     }
     
 }

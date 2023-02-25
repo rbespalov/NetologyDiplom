@@ -29,10 +29,9 @@ final class NDRegisterUserViewViewModel: NSObject {
         authManager.createUser(userLogin: email, userPassword: password) { result in
             switch result {
             case .success:
-                print("OK")
+                self.dataBaseManager.getCurrentUser(userLogin: self.email)
                 self.delegate?.userRegistred()
                 self.dataBaseManager.createUser(userLogin: self.email, password: self.password, userName: self.name)
-                self.dataBaseManager.getCurrentUser(userLogin: self.email)
             case .failure(let error):
                 print(error.localizedDescription)
             }

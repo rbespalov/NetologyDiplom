@@ -7,11 +7,13 @@
 
 import Foundation
 import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 enum fireStoreError: Error {
     case emptyError
     case emptyError2
 }
+
 
 final class NDFirestroreManager {
     
@@ -27,7 +29,6 @@ final class NDFirestroreManager {
     
     public func getCurrentUser(userLogin: String) {
                 
-        
         let docRef = db.document("users/\(userLogin)")
         docRef.getDocument { snapshot, error in
             guard let data = snapshot?.data(), error == nil else {
@@ -40,8 +41,8 @@ final class NDFirestroreManager {
             guard let name = data["name"] as? String else {
                 return
             }
-            
-            NDUserManager.shared.currentUser = .init(nickName: name, login: login)
+
+            NDUserManager.shared.currentUser = .init(nickName: name, login: login, posts: [], status: "test")
         }
     }
     
@@ -64,7 +65,53 @@ final class NDFirestroreManager {
             return completion(.success(value))
             
         }
-        
-        
     }
+    
+    public func createUserPost (author: NDUserModel, post: NDPostModel) {
+        
+        let df = DateFormatter()
+        df.dateFormat = "MMddyyyyHH:mm:ss"
+        let postDate = df.string(from: post.postDate)
+        
+        let docRef = db
+            .document("users/\(author.login)").collection("posts")
+            .document("\(author.login)-\(postDate)")
+//        guard let avatarURLString = author.avatar?.absoluteString else { return }
+        
+        docRef.setData([
+            "authorName" : author.nickName,
+//            "authorAvatar" : avatarURLString,
+            "authorStatus" : author.status,
+            "postText" : post.postText,
+            "postImage" : post.postImage,
+            "numberOfLikes" : post.numberOfLikes,
+            "numberOfComments" : post.numberOfComments,
+            "postDate" : post.postDate
+        ], merge: true)
+    }
+ 
+    
+    public func getPostsData( completion: @escaping ([[String:Any]]) -> Void) {
+        let userLogin = NDUserManager.shared.currentUser.login
+        let docRef = db.document("users/\(userLogin)").collection("posts")
+        var dictArr: [[String:Any]] = []
+        
+//        docRef.addSnapshotListener { snapshot, error in
+//            for document in snapshot!.documents {
+//                let data = document.data()
+//                dictArr.append(data)
+//            }
+//            completion(dictArr)
+//        }
+        
+        docRef.getDocuments { snapshot, error in
+            for document in snapshot!.documents {
+                let data = document.data()
+                dictArr.append(data)
+            }
+            completion(dictArr)
+        }
+
+    }
+
 }

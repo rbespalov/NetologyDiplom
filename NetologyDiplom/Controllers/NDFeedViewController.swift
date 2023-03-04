@@ -9,8 +9,18 @@ import UIKit
 
 final class NDFeedViewController: UIViewController {
     
-    private let feedView = NDFeedView()
+    public var currenUser: NDUserModel
+    
 
+    init(currenUser: NDUserModel) {
+        self.currenUser = currenUser
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -19,6 +29,7 @@ final class NDFeedViewController: UIViewController {
     }
     
     private func setUpView() {
+        let  feedView = NDFeedView(currentUser: currenUser)
         view.addSubview(feedView)
         NSLayoutConstraint.activate([
             feedView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),

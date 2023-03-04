@@ -34,8 +34,8 @@ class NDSingInViewController: UIViewController {
 extension NDSingInViewController: NDSingInViewDelegate {
     func userSingIn() {
         
-        let tabBarVC = NDTabBarController()
-        self.navigationController?.isNavigationBarHidden = true
-        navigationController?.setViewControllers([tabBarVC], animated: true)
+////        let tabBarVC = NDTabBarController()
+//        self.navigationController?.isNavigationBarHidden = true
+//        navigationController?.setViewControllers([tabBarVC], animated: true)
     }
 }

@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseAuth
+import FirebaseFirestore
 
 enum AuthResult {
     case success
@@ -68,7 +69,6 @@ final class NDAuthenticationManager {
                 completion(.failure(error!))
                 return
             }
-            
             completion(.success)
         }
     }

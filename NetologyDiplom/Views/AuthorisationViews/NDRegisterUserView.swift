@@ -9,7 +9,7 @@ import UIKit
 import FirebaseAuth
 
 protocol NDRegisterUserViewDelegate: AnyObject {
-    func userRegistred()
+    func userRegistred(user: NDUserModel)
 }
 
 class NDRegisterUserView: UIView {
@@ -178,7 +178,11 @@ class NDRegisterUserView: UIView {
 }
 
 extension NDRegisterUserView: NDRegisterUserViewViewModelDelegate {
-    func userRegistred() {
-        delegate?.userRegistred()
+    func userRegistred(user: NDUserModel) {
+        delegate?.userRegistred(user: user)
     }
+    
+//    func userRegistred() {
+//        delegate?.userRegistred()
+//    }
 }

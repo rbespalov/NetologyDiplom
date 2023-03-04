@@ -377,7 +377,7 @@ class NDProfileHeaderView: UIView {
         avatar.image = UIImage(named: "rick")
         status.text = "WabbalaabbaDubDub"
         
-        name.text = viewModel.currentUser.nickName
+//        name.text = viewModel.currentUser.nickName
     }
     
     @objc private func showDetailed() {

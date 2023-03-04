@@ -9,8 +9,19 @@ import UIKit
 
 final class NDProfileViewController: UIViewController {
     
-    private let profileView = NDProfileView()
+    public let currentUser: NDUserModel
     
+//    private let profileView = NDProfileView()
+
+    init(currentUser: NDUserModel) {
+        self.currentUser = currentUser
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     
     override func viewDidLoad() {
@@ -18,12 +29,11 @@ final class NDProfileViewController: UIViewController {
         view.backgroundColor = .systemBackground
         setUpView()
         stupNavigationBar()
-        profileView.delegate = self
-//        print(NDUserManager.shared.currentUser.login)
-
     }
     
     private func setUpView() {
+        let profileView = NDProfileView(frame: .zero, currentUser: currentUser)
+        profileView.delegate = self
         view.addSubview(profileView)
         NSLayoutConstraint.activate([
             profileView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -37,7 +47,9 @@ final class NDProfileViewController: UIViewController {
         
         let leftItem: UILabel = {
             let label = UILabel()
-            label.text = NDUserManager.shared.currentUser.login
+            
+//            label.text = NDFirestoreDatabase.shared.getData()
+            
             return label
         }()
         

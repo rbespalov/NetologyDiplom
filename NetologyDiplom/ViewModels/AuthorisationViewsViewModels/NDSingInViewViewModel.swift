@@ -19,7 +19,7 @@ final class NDSingInViewViewModel: NSObject {
     public weak var delegate: NDSingInViewViewModelDelegate?
     
     private var dataBaseManager = NDFirestroreManager.shared
-    private var userManager = NDUserManager.shared
+//    private var userManager = NDUserManager.shared
     
     private var email: String = ""
     private var password: String = ""
@@ -29,8 +29,8 @@ final class NDSingInViewViewModel: NSObject {
         authManager.singInUser(userLogin: email, userPassword: password) { result in
             switch result {
             case .success:
-                self.dataBaseManager.getCurrentUser(userLogin: self.email)
-                self.userManager.currentUser.login = self.email
+//                self.dataBaseManager.getCurrentUser(userLogin: self.email)
+//                self.userManager.currentUser.login = self.email
                 self.delegate?.userSingIn()
 //                NDUserManager.shared.currentUser.login = self.email
                 

@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import FirebaseStorage
 
+// MARK: НЕ БУДЕТ ИСПОЛЬЗОВАТЬСЯ
 
 enum ImageType: String {
     case avatar

@@ -26,12 +26,12 @@ extension NDNewPostViewViewModel: UIImagePickerControllerDelegate, UINavigationC
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[.originalImage] as? UIImage else {return}
-        NDStorageManager.shared.upload(
-            photo: image,
-            userLogin: NDUserManager.shared.currentUser.login,
-            imageType: .postImage) { imageURL in
-                self.postImageURL = imageURL
-            }
+//        NDStorageManager.shared.upload(
+//            photo: image,
+//            userLogin: NDUserManager.shared.currentUser.login,
+//            imageType: .postImage) { imageURL in
+//                self.postImageURL = imageURL
+//            }
         delegate?.imagePicked(image: image)
         picker.dismiss(animated: true)
     }

@@ -11,6 +11,8 @@ final class NDFeedView: UIView {
     
     private let viewModel = NDFeedViewViewModel()
     
+    public var currentUser: NDUserModel
+    
     private let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -20,8 +22,14 @@ final class NDFeedView: UIView {
         return tableView
     }()
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+//    init(currentUser: NDUserModel) {
+//        self.currentUser = currentUser
+//        super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+//    }
+    
+    required init(currentUser: NDUserModel) {
+        self.currentUser = currentUser
+        super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .systemGreen
         addSubviews(tableView)
@@ -30,9 +38,23 @@ final class NDFeedView: UIView {
         tableView.dataSource = viewModel
     }
     
+//    override init(frame: CGRect) {
+//        super.init(frame: frame)
+//        translatesAutoresizingMaskIntoConstraints = false
+//        backgroundColor = .systemGreen
+//        addSubviews(tableView)
+//        setupConstraints()
+//        tableView.delegate = viewModel
+//        tableView.dataSource = viewModel
+//    }
+    
+ 
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([

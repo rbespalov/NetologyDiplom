@@ -14,6 +14,8 @@ protocol NDProfileViewDelegate: AnyObject {
 
 final class NDProfileView: UIView {
     
+    public var currentUser: NDUserModel
+    
     private let viewModel = NDProfileViewViewModel()
     
     public weak var delegate: NDProfileViewDelegate?
@@ -26,18 +28,39 @@ final class NDProfileView: UIView {
         tableView.rowHeight = UITableView.automaticDimension
         return tableView
     }()
+    
+//    required init(currentUser: NDUserModel) {
+//        self.currentUser = currentUser
+//        super.init(frame: UIScreen.main.bounds)
+//        let viewModel = NDProfileViewViewModel()
+//        translatesAutoresizingMaskIntoConstraints = false
+//        backgroundColor = .systemGreen
+//        addSubviews(tableView)
+//        setupConstraints()
+//        tableView.delegate = viewModel
+//        tableView.dataSource = viewModel
+//        viewModel.delegate = self
+//        print(currentUser)
+//    }
 
-    override init(frame: CGRect) {
+    init(frame: CGRect, currentUser: NDUserModel) {
+        self.currentUser = currentUser
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .systemGreen
         addSubviews(tableView)
         setupConstraints()
+//        let viewModel = NDProfileViewViewModel()
+        viewModel.currentUser = currentUser
         tableView.delegate = viewModel
         tableView.dataSource = viewModel
         viewModel.delegate = self
-        viewModel.fetchPosts()
     }
+    
+//    convenience init(frame: CGRect, currentUser: NDUserModel) {
+//        self.init(frame: frame)
+//        self.currentUser = currentUser
+//    }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

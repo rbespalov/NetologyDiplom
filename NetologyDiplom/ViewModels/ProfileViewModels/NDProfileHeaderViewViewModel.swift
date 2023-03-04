@@ -10,7 +10,7 @@ import UIKit
 
 final class NDProfileHeaderViewViewModel: NSObject {
     
-    public var currentUser = NDUserManager.shared.currentUser
+//    public var currentUser = NDUserManager.shared.currentUser
         
     private var photos: [NDProfileHeaderViewCollectionViewCellViewModel] = [
         NDProfileHeaderViewCollectionViewCellViewModel(photoImage: "user"),

@@ -184,19 +184,19 @@ class NDPostTableViewCell: UITableViewCell {
 
     
     public func configure(with viewModel: NDPostTableViewCellViewModel) {
-        authorName.text = viewModel.authorName
-        authorStatus.text = viewModel.authorStatus
-//        поправить опционал аватара
-//        authorAvatar.image = UIImage(named: viewModel.authorAvatar ?? "")
-        authorAvatar.image = viewModel.authorAvatar
-        postText.text = viewModel.postText
-        numberOfComments.text = String(viewModel.numberOfComments)
-        numberOfLikes.text = String(viewModel.numberOfLikes)
-//        postImage.image = UIImage(named: viewModel.postImage)
-        postImage.image = viewModel.postImage
-        
-        let df = DateFormatter()
-        df.dateFormat = "dd.MM.yy"
-        postDate.text = df.string(from: viewModel.postDate)
+//        authorName.text = viewModel.authorName
+//        authorStatus.text = viewModel.authorStatus
+////        поправить опционал аватара
+////        authorAvatar.image = UIImage(named: viewModel.authorAvatar ?? "")
+//        authorAvatar.image = viewModel.authorAvatar
+//        postText.text = viewModel.postText
+//        numberOfComments.text = String(viewModel.numberOfComments)
+//        numberOfLikes.text = String(viewModel.numberOfLikes)
+////        postImage.image = UIImage(named: viewModel.postImage)
+//        postImage.image = viewModel.postImage
+//        
+//        let df = DateFormatter()
+//        df.dateFormat = "dd.MM.yy"
+//        postDate.text = df.string(from: viewModel.postDate)
     }
 }

@@ -16,47 +16,54 @@ protocol NDProfileViewViewModelDelegate: AnyObject {
 
 final class NDProfileViewViewModel: NSObject {
     
+    public var currentUser: NDUserModel?
+    
     public weak var delegate: NDProfileViewViewModelDelegate?
     
-    public var posts: [NDPostModel] = [] {
-        didSet {
-            for post in posts {
-                let postViewModel = NDPostTableViewCellViewModel(
-                    authorName: post.authorName,
-                    authorAvatar: UIImage(named: "logo")!,
-                    authorStatus: post.authorStatus,
-                    postText: post.postText,
-                    postImage: UIImage(named: "rick")!,
-                    numberOfLikes: Int(post.numberOfLikes),
-                    numberOfComments: Int(post.numberOfComments),
-                    postDate: .now)
-
-                if !postViewModels.contains(postViewModel) {
-                    postViewModels.append(postViewModel)
-                }
-            }
-        }
-    }
+//    public var posts: [NDPostModel] = [] {
+//        didSet {
+//            for post in posts {
+//                let postViewModel = NDPostTableViewCellViewModel(
+//                    authorName: post.authorName,
+//                    authorAvatar: UIImage(named: "logo")!,
+//                    authorStatus: post.authorStatus,
+//                    postText: post.postText,
+//                    postImage: UIImage(named: "rick")!,
+//                    numberOfLikes: Int(post.numberOfLikes),
+//                    numberOfComments: Int(post.numberOfComments),
+//                    postDate: .now)
+//
+//                if !postViewModels.contains(postViewModel) {
+//                    postViewModels.append(postViewModel)
+//                }
+//            }
+//        }
+//    }
     
 //    private var posts: [NDPostModel] = NDUserManager.shared.currentUser.posts
     
     private var postViewModels: [NDPostTableViewCellViewModel] = []
     
-    public func fetchPosts() {
-        NDFirestroreManager.shared.getPostsData { dict in
-            for dict in dict {
-                let singlePost = NDPostModel(
-                    authorName: dict["authorName"] as! String,
-                    authorStatus: dict["authorStatus"] as! String,
-                    postText: dict["postText"] as! String,
-                    postImage: dict["postImage"] as! String
-                )
-//                self.posts.append(singlePost)
-                NDUserManager.shared.currentUser.posts.append(singlePost)
-            }
-            self.posts = NDUserManager.shared.currentUser.posts
-        }
-    }
+//    public func fetchPosts() {
+//        NDFirestroreManager.shared.getPostsData { dict in
+//            for dict in dict {
+//                let singlePost = NDPostModel(
+//                    authorName: dict["authorName"] as! String,
+//                    authorStatus: dict["authorStatus"] as! String,
+//                    postText: dict["postText"] as! String,
+//                    postImage: dict["postImage"] as! String
+//                )
+////                self.posts.append(singlePost)
+//                NDUserManager.shared.currentUser.posts.append(singlePost)
+//            }
+//            self.posts = NDUserManager.shared.currentUser.posts
+//        }
+//    }
+    
+//    init(currentUser: NDUserModel) {
+//        self.currentUser = currentUser
+//        print(currentUser)
+//    }
     
 }
 
@@ -75,8 +82,6 @@ extension NDProfileViewViewModel: UITableViewDataSource, UITableViewDelegate {
         }
         cell.configure(with: postViewModels[indexPath.row])
         
-        
-        
         return cell
     }
     
@@ -87,7 +92,6 @@ extension NDProfileViewViewModel: UITableViewDataSource, UITableViewDelegate {
             guard let tableHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: NDProfileTableHeaderView.headeridentifier) as? NDProfileTableHeaderView else {
                 fatalError("could not dequeueReusableHeadr")
             }
-            tableHeader.delegate = self
             return tableHeader
         } else {
             let emptyView = UIView()

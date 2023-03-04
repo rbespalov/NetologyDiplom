@@ -34,8 +34,9 @@ class NDRegisterUserViewController: UIViewController {
 }
 
 extension NDRegisterUserViewController: NDRegisterUserViewDelegate {
-    func userRegistred() {
-        let tabBarVC = NDTabBarController()
+    func userRegistred(user: NDUserModel) {
+        let tabBarVC = NDTabBarController(currenUser: user)
+//        tabBarVC.currenUser = user
         self.navigationController?.isNavigationBarHidden = true
         navigationController?.setViewControllers([tabBarVC], animated: true)
     }

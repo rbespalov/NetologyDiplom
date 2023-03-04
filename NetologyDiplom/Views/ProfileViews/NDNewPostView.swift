@@ -16,7 +16,7 @@ protocol NDNewPostViewDelegate: AnyObject {
 
 class NDNewPostView: UIView {
     
-    private var currentUser = NDUserManager.shared.currentUser
+//    private var currentUser = NDUserManager.shared.currentUser
     
     private let fireStore = NDFirestroreManager.shared
     
@@ -116,18 +116,19 @@ class NDNewPostView: UIView {
         
         guard let postImageURL = viewModel.postImageURL else { print("post image URL = nil"); return}
 
-        let newPost = NDPostModel(
-            authorName: currentUser.login,
-            authorAvatar: nil,
-            authorStatus: currentUser.status,
-            postText: viewModel.postText,
-            postImage: postImageURL.absoluteString)
+//        let newPost = NDPostModel(
+//            id: String
+//            authorName: currentUser.login,
+//            authorAvatar: nil,
+//            authorStatus: currentUser.status,
+//            postText: viewModel.postText,
+//            postImage: postImageURL.absoluteString)
 
 //        currentUser.posts.append(newPost)
         
 
-        fireStore.createUserPost(author: currentUser, post: newPost)
-        currentUser.posts.append(newPost)
+//        fireStore.createUserPost(author: currentUser, post: newPost)
+//        currentUser.posts.append(newPost)
 
                 
         delegate?.tapPost()

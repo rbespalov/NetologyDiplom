@@ -9,14 +9,14 @@ import Foundation
 import UIKit
 
 protocol NDRegisterUserViewViewModelDelegate: AnyObject {
-    func userRegistred()
+    func userRegistred(user: NDUserModel)
 }
 
 final class NDRegisterUserViewViewModel: NSObject {
     
     private let authManager = NDAuthenticationManager.shared
     
-    private let dataBaseManager = NDFirestroreManager.shared
+    private let dataBaseManager = NDFirestoreDatabase.shared
     
     public weak var delegate: NDRegisterUserViewViewModelDelegate?
     
@@ -29,9 +29,10 @@ final class NDRegisterUserViewViewModel: NSObject {
         authManager.createUser(userLogin: email, userPassword: password) { result in
             switch result {
             case .success:
-                self.dataBaseManager.getCurrentUser(userLogin: self.email)
-                self.delegate?.userRegistred()
-                self.dataBaseManager.createUser(userLogin: self.email, password: self.password, userName: self.name)
+                let newUser = NDUserModel(loginEmail: self.email, nickName: self.name)
+                let done = self.dataBaseManager.addDataToFireBase(with: .users, usingDataModel: newUser)
+                print(done)
+                self.delegate?.userRegistred(user: newUser)
             case .failure(let error):
                 print(error.localizedDescription)
             }

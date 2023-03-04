@@ -8,6 +8,17 @@
 import UIKit
 
 final class NDFavoritesViewController: UIViewController {
+    
+    public let currentUser: NDUserModel
+    
+    init(currentUser: NDUserModel) {
+        self.currentUser = currentUser
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

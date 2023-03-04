@@ -16,6 +16,8 @@ class NDProfileTableHeaderView: UITableViewHeaderFooterView {
 
     static let headeridentifier = "NDProfileTableHeaderView"
     
+    public var currentUser: NDUserModel?
+    
     public weak var delegate: NDProfileTableHeaderViewDelegate?
     
     private var headerView: NDProfileHeaderView = {
@@ -28,10 +30,20 @@ class NDProfileTableHeaderView: UITableViewHeaderFooterView {
         super.init(reuseIdentifier: reuseIdentifier)
         addSubview(headerView)
         setupConstraint()
-        
+        print(NDFirestoreDatabase.shared.currentUserID)
         headerView.delegate = self
         
     }
+    
+//    required init(currentUser: NDUserModel, reuseIdentifier: String?) {
+//        self.currentUser = currentUser
+//        super.init(reuseIdentifier: reuseIdentifier)
+//        addSubview(headerView)
+//        setupConstraint()
+//
+//        headerView.delegate = self
+//        print(currentUser)
+//    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

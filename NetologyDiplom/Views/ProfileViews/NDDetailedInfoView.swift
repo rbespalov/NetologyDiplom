@@ -26,7 +26,7 @@ class NDDetailedInfoView: UIView {
         textFIeld.translatesAutoresizingMaskIntoConstraints = false
         textFIeld.placeholder = "имя"
         
-        textFIeld.text = viewModel.firstName
+//        textFIeld.text = viewModel.firstName
         
         textFIeld.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: textFIeld.frame.height))
         textFIeld.leftViewMode = .always
@@ -60,7 +60,7 @@ class NDDetailedInfoView: UIView {
         textFIeld.translatesAutoresizingMaskIntoConstraints = false
         textFIeld.placeholder = "фамилия"
         
-        textFIeld.text = viewModel.secondName
+//        textFIeld.text = viewModel.secondName
         
         textFIeld.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: textFIeld.frame.height))
         textFIeld.leftViewMode = .always
@@ -138,7 +138,7 @@ class NDDetailedInfoView: UIView {
         textFIeld.translatesAutoresizingMaskIntoConstraints = false
         textFIeld.placeholder = "ваша дата рождения"
         
-        textFIeld.text = viewModel.birthDate
+//        textFIeld.text = viewModel.birthDate
         
         textFIeld.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: textFIeld.frame.height))
         textFIeld.leftViewMode = .always
@@ -172,7 +172,7 @@ class NDDetailedInfoView: UIView {
         textFIeld.translatesAutoresizingMaskIntoConstraints = false
         textFIeld.placeholder = "введите город"
         
-        textFIeld.text = viewModel.homeTown
+//        textFIeld.text = viewModel.homeTown
 
         textFIeld.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: textFIeld.frame.height))
         textFIeld.leftViewMode = .always
@@ -260,21 +260,21 @@ class NDDetailedInfoView: UIView {
     }
     
     @objc func tapMale() {
-        NDFirestroreManager.shared.setDataForUser(userLogin: NDUserManager.shared.currentUser.login, dataType: "gender", dataValue: "male")
+//        NDFirestroreManager.shared.setDataForUser(userLogin: NDUserManager.shared.currentUser.login, dataType: "gender", dataValue: "male")
         maleCheckmark.image = UIImage(systemName: "smallcircle.filled.circle")
         maleCheckmark.tintColor = .systemGreen
         feemaleCheckmark.image = UIImage(systemName: "circle")
         feemaleCheckmark.tintColor = .systemGray2
-        NDUserManager.shared.currentUser.gender = "male"
+//        NDUserManager.shared.currentUser.gender = "male"
     }
     
     @objc func tapFeemale() {
-        NDFirestroreManager.shared.setDataForUser(userLogin: NDUserManager.shared.currentUser.login, dataType: "gender", dataValue: "feemale")
+//        NDFirestroreManager.shared.setDataForUser(userLogin: NDUserManager.shared.currentUser.login, dataType: "gender", dataValue: "feemale")
         feemaleCheckmark.image = UIImage(systemName: "smallcircle.filled.circle")
         feemaleCheckmark.tintColor = .systemGreen
         maleCheckmark.image = UIImage(systemName: "circle")
         maleCheckmark.tintColor = .systemGray2
-        NDUserManager.shared.currentUser.gender = "feemale"
+//        NDUserManager.shared.currentUser.gender = "feemale"
     }
     
     private func setupTextFields() {
@@ -297,15 +297,15 @@ class NDDetailedInfoView: UIView {
     }
     
     private func setupGenderCheckmark() {
-        if viewModel.gender == "male" {
-            maleCheckmark.image = UIImage(systemName: "smallcircle.filled.circle")
-            maleCheckmark.tintColor = .systemGreen
-        }
+//        if viewModel.gender == "male" {
+//            maleCheckmark.image = UIImage(systemName: "smallcircle.filled.circle")
+//            maleCheckmark.tintColor = .systemGreen
+//        }
         
-        if viewModel.gender == "feemale" {
-            feemaleCheckmark.image = UIImage(systemName: "smallcircle.filled.circle")
-            feemaleCheckmark.tintColor = .systemGreen
-        }
+//        if viewModel.gender == "feemale" {
+//            feemaleCheckmark.image = UIImage(systemName: "smallcircle.filled.circle")
+//            feemaleCheckmark.tintColor = .systemGreen
+//        }
         
         
     }

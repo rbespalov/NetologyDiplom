@@ -11,7 +11,7 @@ class NDProfileHeaderViewCollectionViewCell: UICollectionViewCell {
     
     static let cellIdentifier = "NDProfileHeaderViewCollectionViewCell"
     
-    private let photoImage: UIImageView = {
+    lazy var photoImage: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFit
         image.layer.cornerRadius = 5
@@ -44,7 +44,7 @@ class NDProfileHeaderViewCollectionViewCell: UICollectionViewCell {
         super.prepareForReuse()
     }
     
-    public func configure (with viewModel: NDProfileHeaderViewCollectionViewCellViewModel) {
-        photoImage.image = UIImage(named: viewModel.photoImage)
+    public func configure () {
+        // upload photos
     }
 }

@@ -9,34 +9,30 @@ import UIKit
 
 final class NDFeedViewController: UIViewController {
     
-    public var currenUser: NDUserModel
-    
-
-    init(currenUser: NDUserModel) {
-        self.currenUser = currenUser
-        super.init(nibName: nil, bundle: nil)
+    private var feedView: NDFeedView! {
+        guard isViewLoaded else {
+            return nil
+        }
+        
+        return (view as! NDFeedView)
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    override func loadView() {
+        super.loadView()
+        
+        let feedView = NDFeedView()
+        feedView.configure()
+        
+        view = feedView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        setUpView()
         stupNavigationBar()
-    }
-    
-    private func setUpView() {
-        let  feedView = NDFeedView(currentUser: currenUser)
-        view.addSubview(feedView)
-        NSLayoutConstraint.activate([
-            feedView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            feedView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            feedView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
-            feedView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
-        ])
+        
+        feedView.tableView.dataSource = self
+        feedView.tableView.delegate = self
     }
     
     private func stupNavigationBar() {
@@ -64,14 +60,47 @@ final class NDFeedViewController: UIViewController {
         navigationItem.leftBarButtonItem = leftItem
         
         navigationItem.rightBarButtonItems = [firstRightItem, secondRightItem]
-        
-//        let rightItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addPost))
-//        navigationItem.rightBarButtonItems = [rightItem]
     }
-
-//    @objc private func addPost() {
-//        print("works")
-//    }
 
 }
 
+extension NDFeedViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: NDPostTableViewCell.cellIdentifier, for: indexPath) as? NDPostTableViewCell else {
+            fatalError("Cell unsupported")
+        }
+//        cell.configure(with: posts[indexPath.row])
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        if section == 0 {
+            
+            guard let tableHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: NDFeedTableHeaderView.headeridentifier) as? NDFeedTableHeaderView else {
+                fatalError("could not dequeueReusableHeadr")
+            }
+            return tableHeader
+        } else {
+            let emptyView = UIView()
+            return emptyView
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 150
+        } else {
+            return 0
+        }
+    }
+}

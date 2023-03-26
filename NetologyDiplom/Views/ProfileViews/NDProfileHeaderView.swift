@@ -7,18 +7,9 @@
 
 import UIKit
 
-protocol NDProfileHeaderViewDelegate: AnyObject {
-    func didTapDetailUserInfo()
-    func createPost()
-}
-
-class NDProfileHeaderView: UIView {
+final class NDProfileHeaderView: UIView {
     
-    private let viewModel = NDProfileHeaderViewViewModel()
-    
-    public weak var delegate: NDProfileHeaderViewDelegate?
-    
-    private var avatar: UIImageView = {
+    lazy var avatar: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = imageView.frame.size.width / 2
@@ -28,38 +19,38 @@ class NDProfileHeaderView: UIView {
         return imageView
     }()
     
-    private var name: UILabel = {
+    lazy var name: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
        return label
     }()
     
-    private var status: UILabel = {
+    lazy var status: UILabel = {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    private lazy var exclamationImage: UIButton = {
+    lazy var exclamationImage: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "exclamationmark.circle.fill"), for: .normal)
-        button.addTarget(self, action: #selector(showDetailed), for: .touchUpInside)
+//        button.addTarget(self, action: #selector(showDetailed), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
-    private lazy var detailedInformation: UIButton = {
+    lazy var detailedInformation: UIButton = {
         let button = UIButton()
         button.setTitle("Подробная информация", for: .normal)
         button.setTitleColor(.label, for: .normal)
-        button.addTarget(self, action: #selector(showDetailed), for: .touchUpInside)
+//        button.addTarget(self, action: #selector(), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.isUserInteractionEnabled = true
 
         return button
     }()
     
-    private var editDetailedInfoButton: UIButton = {
+    lazy var editDetailedInfoButton: UIButton = {
         let button = UIButton()
         button.setTitle("Редактировать", for: .normal)
         button.backgroundColor = .systemGreen
@@ -69,49 +60,49 @@ class NDProfileHeaderView: UIView {
         return button
     }()
     
-    private var numberOfPosts: UILabel = {
+    lazy var numberOfPosts: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "123"
         return label
     }()
     
-    private var numberOfSubscriptions: UILabel = {
+    lazy var numberOfSubscriptions: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "321"
         return label
     }()
     
-    private var numberOfSubscribers: UILabel = {
+    lazy var numberOfSubscribers: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "333"
         return label
     }()
     
-    private var numberOfPostsLabel: UILabel = {
+    lazy var numberOfPostsLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "публикаций"
         return label
     }()
     
-    private var numberOfSubscriptionsLabel: UILabel = {
+    lazy var numberOfSubscriptionsLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "подписок"
         return label
     }()
     
-    private var numberOfSubscribersLabel: UILabel = {
+    lazy var numberOfSubscribersLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "подписчиков"
         return label
     }()
     
-    private lazy var numberOfPostsStackView: UIStackView = {
+    lazy var numberOfPostsStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
@@ -122,7 +113,7 @@ class NDProfileHeaderView: UIView {
         return stackView
     }()
     
-    private lazy var numberOfSubscriptionsStackView: UIStackView = {
+    lazy var numberOfSubscriptionsStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
@@ -133,7 +124,7 @@ class NDProfileHeaderView: UIView {
         return stackView
     }()
     
-    private lazy var numberOfSubscribersStackView: UIStackView = {
+    lazy var numberOfSubscribersStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
@@ -144,54 +135,54 @@ class NDProfileHeaderView: UIView {
         return stackView
     }()
     
-    private var separator: UIView = {
+    lazy var separator: UIView = {
         let view = UIView()
         view.backgroundColor = .black
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    private var postLabel: UILabel = {
+    lazy var postLabel: UILabel = {
         let label = UILabel()
         label.text = "Запись"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    private var storyLabel: UILabel = {
+    lazy var storyLabel: UILabel = {
         let label = UILabel()
         label.text = "История"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    private var photoLabel: UILabel = {
+    lazy var photoLabel: UILabel = {
         let label = UILabel()
         label.text = "Фото"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    private var noteimage: UIImageView = {
+    lazy var noteimage: UIImageView = {
         let image = UIImageView(image: UIImage(systemName: "square.and.pencil"))
         image.translatesAutoresizingMaskIntoConstraints = false
         image.frame.size = CGSize(width: 75, height: 75)
         return image
     }()
     
-    private var storyimage: UIImageView = {
+    lazy var storyimage: UIImageView = {
         let image = UIImageView(image: UIImage(systemName: "camera"))
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
     
-    private var photoimage: UIImageView = {
+    lazy var photoimage: UIImageView = {
         let image = UIImageView(image: UIImage(systemName: "photo"))
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
     
-    private lazy var postStackView: UIStackView = {
+    lazy var postStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
@@ -199,12 +190,12 @@ class NDProfileHeaderView: UIView {
         stackView.alignment = .center
         stackView.addArrangedSubview(noteimage)
         stackView.addArrangedSubview(postLabel)
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(createPost))
-        stackView.addGestureRecognizer(gesture)
+//        let gesture = UITapGestureRecognizer(target: self, action: #selector(createPost))
+//        stackView.addGestureRecognizer(gesture)
         return stackView
     }()
     
-    private lazy var storyStackView: UIStackView = {
+    lazy var storyStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
@@ -215,7 +206,7 @@ class NDProfileHeaderView: UIView {
         return stackView
     }()
     
-    private lazy var photoStackView: UIStackView = {
+    lazy var photoStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
@@ -226,21 +217,21 @@ class NDProfileHeaderView: UIView {
         return stackView
     }()
     
-    private var myPhotosLabel: UILabel = {
+    lazy var myPhotosLabel: UILabel = {
         let label = UILabel()
         label.text = "Фотографии"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    private var myPhotoCount: UILabel = {
+    lazy var myPhotoCount: UILabel = {
         let label = UILabel()
         label.text = "15"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    private let collectionView: UICollectionView = {
+    lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
@@ -250,27 +241,27 @@ class NDProfileHeaderView: UIView {
         return collectionView
     }()
     
-    private var goToMyPhotoButton: UIButton = {
+    lazy var goToMyPhotoButton: UIButton = {
        let button = UIButton()
         button.setImage(UIImage(systemName: "chevron.right"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
-    private var myPostsLabel: UILabel = {
+    lazy var myPostsLabel: UILabel = {
         let label = UILabel()
         label.text = "Мои записи"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    private var myPostSearchImage: UIImageView = {
+    lazy var myPostSearchImage: UIImageView = {
         let image = UIImageView(image: UIImage(systemName: "magnifyingglass"))
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
     
-    private lazy var myPostsStackView: UIStackView = {
+    lazy var myPostsStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
@@ -296,8 +287,6 @@ class NDProfileHeaderView: UIView {
         
         setupConstraints()
         setUpView()
-        collectionView.delegate = viewModel
-        collectionView.dataSource = viewModel
     }
     
     required init?(coder: NSCoder) {
@@ -376,16 +365,7 @@ class NDProfileHeaderView: UIView {
         
         avatar.image = UIImage(named: "rick")
         status.text = "WabbalaabbaDubDub"
-        
-//        name.text = viewModel.currentUser.nickName
-    }
-    
-    @objc private func showDetailed() {
-        delegate?.didTapDetailUserInfo()
-    }
-    
-    @objc private func createPost() {
-        delegate?.createPost()
+        name.text = "Pakos"
         
     }
 }

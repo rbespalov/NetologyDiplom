@@ -9,38 +9,30 @@ import UIKit
 
 final class NDProfileViewController: UIViewController {
     
-    public let currentUser: NDUserModel
-    
-//    private let profileView = NDProfileView()
-
-    init(currentUser: NDUserModel) {
-        self.currentUser = currentUser
-        super.init(nibName: nil, bundle: nil)
+    private var profileView: NDProfileView! {
+        guard isViewLoaded else {
+            return nil
+        }
+        
+        return (view as! NDProfileView)
     }
     
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    override func loadView() {
+        super.loadView()
+        
+        let profileView = NDProfileView()
+        profileView.configure()
+        
+        view = profileView
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        setUpView()
         stupNavigationBar()
-    }
-    
-    private func setUpView() {
-        let profileView = NDProfileView(frame: .zero, currentUser: currentUser)
-        profileView.delegate = self
-        view.addSubview(profileView)
-        NSLayoutConstraint.activate([
-            profileView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            profileView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            profileView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
-            profileView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
-        ])
+        profileView.tableView.dataSource = self
+        profileView.tableView.delegate = self
     }
     
     func stupNavigationBar() {
@@ -48,7 +40,7 @@ final class NDProfileViewController: UIViewController {
         let leftItem: UILabel = {
             let label = UILabel()
             
-//            label.text = NDFirestoreDatabase.shared.getData()
+            label.text = "ProfileVC"
             
             return label
         }()
@@ -66,16 +58,43 @@ final class NDProfileViewController: UIViewController {
     }
 }
 
-extension NDProfileViewController: NDProfileViewDelegate {
-    func createPost() {
-        let vc = NDNewPostViewController()
-        navigationController?.pushViewController(vc, animated: true)
+extension NDProfileViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 7
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
     
-    func didTapDetailUserInfo() {
-        let vc = NDDetailedUserInfoViewController()
-        navigationController?.pushViewController(vc, animated: true)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: NDPostTableViewCell.cellIdentifier, for: indexPath) as? NDPostTableViewCell else {
+            fatalError("Cell unsupported")
+        }
+        //        cell.configure(with: postViewModels[indexPath.row])
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        if section == 0 {
+            
+            guard let tableHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: NDProfileTableHeaderView.headeridentifier) as? NDProfileTableHeaderView else {
+                fatalError("could not dequeueReusableHeadr")
+            }
+            return tableHeader
+        } else {
+            let emptyView = UIView()
+            return emptyView
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 500
+        } else {
+            return 0
+        }
     }
 }
-

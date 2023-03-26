@@ -17,27 +17,21 @@
 		D639ACC7299147EE00E80D62 /* NDTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACC6299147EE00E80D62 /* NDTabBarController.swift */; };
 		D639ACC92991515C00E80D62 /* NDPostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACC82991515C00E80D62 /* NDPostModel.swift */; };
 		D639ACCB2991531D00E80D62 /* NDUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACCA2991531D00E80D62 /* NDUserModel.swift */; };
-		D639ACD42991536100E80D62 /* NDFeedViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACD32991536100E80D62 /* NDFeedViewViewModel.swift */; };
-		D639ACD62991536F00E80D62 /* NDProfileViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACD52991536F00E80D62 /* NDProfileViewViewModel.swift */; };
-		D639ACD82991538400E80D62 /* NDFavoritesViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACD72991538400E80D62 /* NDFavoritesViewViewModel.swift */; };
 		D639ACDA2991541600E80D62 /* NDFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACD92991541600E80D62 /* NDFeedView.swift */; };
 		D639ACDC2991543300E80D62 /* NDProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACDB2991543300E80D62 /* NDProfileView.swift */; };
 		D639ACDE2991544200E80D62 /* NDFavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACDD2991544200E80D62 /* NDFavoritesView.swift */; };
 		D639ACE02991738F00E80D62 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACDF2991738F00E80D62 /* Extentions.swift */; };
 		D639ACE2299175E200E80D62 /* NDPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACE1299175E200E80D62 /* NDPostTableViewCell.swift */; };
-		D639ACE429917A0800E80D62 /* NDPostTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACE329917A0800E80D62 /* NDPostTableViewCellViewModel.swift */; };
 		D639ACEA2997C13B00E80D62 /* NDFeedTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACE92997C13B00E80D62 /* NDFeedTableHeaderView.swift */; };
 		D639ACEC2997C49200E80D62 /* NDFeedHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACEB2997C49200E80D62 /* NDFeedHeaderView.swift */; };
 		D639ACEE2997C9F100E80D62 /* NDFeedHeaderViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACED2997C9F100E80D62 /* NDFeedHeaderViewCollectionViewCell.swift */; };
-		D639ACF02997CBAA00E80D62 /* NDFeedHeadViewCollectionViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACEF2997CBAA00E80D62 /* NDFeedHeadViewCollectionViewViewModel.swift */; };
-		D639ACF22997D58200E80D62 /* NDFeedHeadViewCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACF12997D58200E80D62 /* NDFeedHeadViewCollectionViewCellViewModel.swift */; };
 		D639ACF62997F5F700E80D62 /* NDProfileTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACF52997F5F700E80D62 /* NDProfileTableHeaderView.swift */; };
 		D639ACF82997F64B00E80D62 /* NDProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACF72997F64B00E80D62 /* NDProfileHeaderView.swift */; };
-		D639ACFA2997F83600E80D62 /* NDProfileHeaderViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D639ACF92997F83600E80D62 /* NDProfileHeaderViewViewModel.swift */; };
 		D6469BF529A699D700ACD3A6 /* NDStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6469BF429A699D700ACD3A6 /* NDStorageManager.swift */; };
 		D6469BF929AD385B00ACD3A6 /* NDFirestoreDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6469BF829AD385B00ACD3A6 /* NDFirestoreDatabase.swift */; };
+		D6469C0229C6325700ACD3A6 /* AuthErrorCodeExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6469C0129C6325700ACD3A6 /* AuthErrorCodeExtention.swift */; };
+		D6469C0429C63B6A00ACD3A6 /* ViewControllerExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6469C0329C63B6A00ACD3A6 /* ViewControllerExtentions.swift */; };
 		D6746DEC29990062005E5584 /* NDProfileHeaderViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6746DEB29990062005E5584 /* NDProfileHeaderViewCollectionViewCell.swift */; };
-		D6746DEE2999045F005E5584 /* NDProfileHeaderViewCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6746DED2999045F005E5584 /* NDProfileHeaderViewCollectionViewCellViewModel.swift */; };
 		D67D1BB7299142CF00385265 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67D1BB6299142CF00385265 /* AppDelegate.swift */; };
 		D67D1BB9299142CF00385265 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67D1BB8299142CF00385265 /* SceneDelegate.swift */; };
 		D67D1BBB299142CF00385265 /* NDFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67D1BBA299142CF00385265 /* NDFeedViewController.swift */; };
@@ -49,17 +43,12 @@
 		D69779C8299ABB1700583AE3 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D69779C7299ABB1700583AE3 /* FirebaseFirestoreSwift */; };
 		D69779CA299ABB1700583AE3 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = D69779C9299ABB1700583AE3 /* FirebaseStorage */; };
 		D69779CD299D700700583AE3 /* NDAuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69779CC299D700700583AE3 /* NDAuthenticationManager.swift */; };
-		D69779D1299EA94000583AE3 /* NDRegisterUserViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69779D0299EA94000583AE3 /* NDRegisterUserViewViewModel.swift */; };
-		D69779D329A118C400583AE3 /* NDUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69779D229A118C400583AE3 /* NDUserManager.swift */; };
 		D69779D529A12C5B00583AE3 /* NDSingInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69779D429A12C5B00583AE3 /* NDSingInView.swift */; };
-		D69779D729A12DFF00583AE3 /* NDSingInViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69779D629A12DFF00583AE3 /* NDSingInViewViewModel.swift */; };
 		D698FB3729A533CC009C70BC /* NDNewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D698FB3629A533CC009C70BC /* NDNewPostViewController.swift */; };
 		D698FB3929A53405009C70BC /* NDNewPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D698FB3829A53405009C70BC /* NDNewPostView.swift */; };
-		D698FB3B29A54282009C70BC /* NDNewPostViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D698FB3A29A54282009C70BC /* NDNewPostViewViewModel.swift */; };
 		D6FFA03E29A14D6D00A9F569 /* NDFirestroreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FFA03D29A14D6D00A9F569 /* NDFirestroreManager.swift */; };
 		D6FFA04129A2645500A9F569 /* NDDetailedUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FFA04029A2645500A9F569 /* NDDetailedUserInfoViewController.swift */; };
 		D6FFA04329A264C700A9F569 /* NDDetailedInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FFA04229A264C700A9F569 /* NDDetailedInfoView.swift */; };
-		D6FFA04529A2837900A9F569 /* NDDetailedInfoViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FFA04429A2837900A9F569 /* NDDetailedInfoViewViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,27 +62,21 @@
 		D639ACC6299147EE00E80D62 /* NDTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDTabBarController.swift; sourceTree = "<group>"; };
 		D639ACC82991515C00E80D62 /* NDPostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDPostModel.swift; sourceTree = "<group>"; };
 		D639ACCA2991531D00E80D62 /* NDUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDUserModel.swift; sourceTree = "<group>"; };
-		D639ACD32991536100E80D62 /* NDFeedViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDFeedViewViewModel.swift; sourceTree = "<group>"; };
-		D639ACD52991536F00E80D62 /* NDProfileViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDProfileViewViewModel.swift; sourceTree = "<group>"; };
-		D639ACD72991538400E80D62 /* NDFavoritesViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDFavoritesViewViewModel.swift; sourceTree = "<group>"; };
 		D639ACD92991541600E80D62 /* NDFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDFeedView.swift; sourceTree = "<group>"; };
 		D639ACDB2991543300E80D62 /* NDProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDProfileView.swift; sourceTree = "<group>"; };
 		D639ACDD2991544200E80D62 /* NDFavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDFavoritesView.swift; sourceTree = "<group>"; };
 		D639ACDF2991738F00E80D62 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		D639ACE1299175E200E80D62 /* NDPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDPostTableViewCell.swift; sourceTree = "<group>"; };
-		D639ACE329917A0800E80D62 /* NDPostTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDPostTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		D639ACE92997C13B00E80D62 /* NDFeedTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDFeedTableHeaderView.swift; sourceTree = "<group>"; };
 		D639ACEB2997C49200E80D62 /* NDFeedHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDFeedHeaderView.swift; sourceTree = "<group>"; };
 		D639ACED2997C9F100E80D62 /* NDFeedHeaderViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDFeedHeaderViewCollectionViewCell.swift; sourceTree = "<group>"; };
-		D639ACEF2997CBAA00E80D62 /* NDFeedHeadViewCollectionViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDFeedHeadViewCollectionViewViewModel.swift; sourceTree = "<group>"; };
-		D639ACF12997D58200E80D62 /* NDFeedHeadViewCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDFeedHeadViewCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		D639ACF52997F5F700E80D62 /* NDProfileTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDProfileTableHeaderView.swift; sourceTree = "<group>"; };
 		D639ACF72997F64B00E80D62 /* NDProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDProfileHeaderView.swift; sourceTree = "<group>"; };
-		D639ACF92997F83600E80D62 /* NDProfileHeaderViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDProfileHeaderViewViewModel.swift; sourceTree = "<group>"; };
 		D6469BF429A699D700ACD3A6 /* NDStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDStorageManager.swift; sourceTree = "<group>"; };
 		D6469BF829AD385B00ACD3A6 /* NDFirestoreDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDFirestoreDatabase.swift; sourceTree = "<group>"; };
+		D6469C0129C6325700ACD3A6 /* AuthErrorCodeExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthErrorCodeExtention.swift; sourceTree = "<group>"; };
+		D6469C0329C63B6A00ACD3A6 /* ViewControllerExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtentions.swift; sourceTree = "<group>"; };
 		D6746DEB29990062005E5584 /* NDProfileHeaderViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDProfileHeaderViewCollectionViewCell.swift; sourceTree = "<group>"; };
-		D6746DED2999045F005E5584 /* NDProfileHeaderViewCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDProfileHeaderViewCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		D67D1BB3299142CF00385265 /* NetologyDiplom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetologyDiplom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D67D1BB6299142CF00385265 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D67D1BB8299142CF00385265 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,17 +86,12 @@
 		D67D1BC4299142D000385265 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D69779C0299ABABE00583AE3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D69779CC299D700700583AE3 /* NDAuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDAuthenticationManager.swift; sourceTree = "<group>"; };
-		D69779D0299EA94000583AE3 /* NDRegisterUserViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDRegisterUserViewViewModel.swift; sourceTree = "<group>"; };
-		D69779D229A118C400583AE3 /* NDUserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDUserManager.swift; sourceTree = "<group>"; };
 		D69779D429A12C5B00583AE3 /* NDSingInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDSingInView.swift; sourceTree = "<group>"; };
-		D69779D629A12DFF00583AE3 /* NDSingInViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDSingInViewViewModel.swift; sourceTree = "<group>"; };
 		D698FB3629A533CC009C70BC /* NDNewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDNewPostViewController.swift; sourceTree = "<group>"; };
 		D698FB3829A53405009C70BC /* NDNewPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDNewPostView.swift; sourceTree = "<group>"; };
-		D698FB3A29A54282009C70BC /* NDNewPostViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDNewPostViewViewModel.swift; sourceTree = "<group>"; };
 		D6FFA03D29A14D6D00A9F569 /* NDFirestroreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDFirestroreManager.swift; sourceTree = "<group>"; };
 		D6FFA04029A2645500A9F569 /* NDDetailedUserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDDetailedUserInfoViewController.swift; sourceTree = "<group>"; };
 		D6FFA04229A264C700A9F569 /* NDDetailedInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDDetailedInfoView.swift; sourceTree = "<group>"; };
-		D6FFA04429A2837900A9F569 /* NDDetailedInfoViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NDDetailedInfoViewViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,18 +165,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		D639ACBE299145AF00E80D62 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				D69779CE299EA90D00583AE3 /* AuthorisationViewsViewModels */,
-				D639ACF32997F18600E80D62 /* FeedViewModels */,
-				D639ACFC2998FF5800E80D62 /* ProfileViewModels */,
-				D639ACE329917A0800E80D62 /* NDPostTableViewCellViewModel.swift */,
-				D639ACD72991538400E80D62 /* NDFavoritesViewViewModel.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
 		D639ACBF299145B700E80D62 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,16 +172,6 @@
 				D639ACCA2991531D00E80D62 /* NDUserModel.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		D639ACF32997F18600E80D62 /* FeedViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				D639ACD32991536100E80D62 /* NDFeedViewViewModel.swift */,
-				D639ACEF2997CBAA00E80D62 /* NDFeedHeadViewCollectionViewViewModel.swift */,
-				D639ACF12997D58200E80D62 /* NDFeedHeadViewCollectionViewCellViewModel.swift */,
-			);
-			path = FeedViewModels;
 			sourceTree = "<group>";
 		};
 		D639ACF42997F1A500E80D62 /* FeedViews */ = {
@@ -242,16 +198,13 @@
 			path = ProfileViews;
 			sourceTree = "<group>";
 		};
-		D639ACFC2998FF5800E80D62 /* ProfileViewModels */ = {
+		D6469C0029C6323D00ACD3A6 /* Extentions */ = {
 			isa = PBXGroup;
 			children = (
-				D639ACD52991536F00E80D62 /* NDProfileViewViewModel.swift */,
-				D639ACF92997F83600E80D62 /* NDProfileHeaderViewViewModel.swift */,
-				D6746DED2999045F005E5584 /* NDProfileHeaderViewCollectionViewCellViewModel.swift */,
-				D6FFA04429A2837900A9F569 /* NDDetailedInfoViewViewModel.swift */,
-				D698FB3A29A54282009C70BC /* NDNewPostViewViewModel.swift */,
+				D6469C0129C6325700ACD3A6 /* AuthErrorCodeExtention.swift */,
+				D6469C0329C63B6A00ACD3A6 /* ViewControllerExtentions.swift */,
 			);
-			path = ProfileViewModels;
+			path = Extentions;
 			sourceTree = "<group>";
 		};
 		D67D1BAA299142CF00385265 = {
@@ -273,10 +226,10 @@
 		D67D1BB5299142CF00385265 /* NetologyDiplom */ = {
 			isa = PBXGroup;
 			children = (
+				D6469C0029C6323D00ACD3A6 /* Extentions */,
 				D639ACBB2991456400E80D62 /* Resources */,
 				D69779CB299D6FCE00583AE3 /* Managers */,
 				D639ACBF299145B700E80D62 /* Models */,
-				D639ACBE299145AF00E80D62 /* ViewModels */,
 				D639ACBD2991459100E80D62 /* Views */,
 				D639ACBC2991458A00E80D62 /* Controllers */,
 				D67D1BC4299142D000385265 /* Info.plist */,
@@ -289,21 +242,11 @@
 			isa = PBXGroup;
 			children = (
 				D69779CC299D700700583AE3 /* NDAuthenticationManager.swift */,
-				D69779D229A118C400583AE3 /* NDUserManager.swift */,
 				D6FFA03D29A14D6D00A9F569 /* NDFirestroreManager.swift */,
 				D6469BF429A699D700ACD3A6 /* NDStorageManager.swift */,
 				D6469BF829AD385B00ACD3A6 /* NDFirestoreDatabase.swift */,
 			);
 			path = Managers;
-			sourceTree = "<group>";
-		};
-		D69779CE299EA90D00583AE3 /* AuthorisationViewsViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				D69779D0299EA94000583AE3 /* NDRegisterUserViewViewModel.swift */,
-				D69779D629A12DFF00583AE3 /* NDSingInViewViewModel.swift */,
-			);
-			path = AuthorisationViewsViewModels;
 			sourceTree = "<group>";
 		};
 		D6FFA03F29A2640900A9F569 /* Profile */ = {
@@ -396,7 +339,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D698FB3B29A54282009C70BC /* NDNewPostViewViewModel.swift in Sources */,
 				D639ACDA2991541600E80D62 /* NDFeedView.swift in Sources */,
 				D605909F2999671C00C53D7C /* NDAuthorisationViewController.swift in Sources */,
 				D6FFA04329A264C700A9F569 /* NDDetailedInfoView.swift in Sources */,
@@ -412,33 +354,23 @@
 				D60590A32999672F00C53D7C /* NDRegisterUserView.swift in Sources */,
 				D639ACF82997F64B00E80D62 /* NDProfileHeaderView.swift in Sources */,
 				D639ACDE2991544200E80D62 /* NDFavoritesView.swift in Sources */,
-				D639ACF22997D58200E80D62 /* NDFeedHeadViewCollectionViewCellViewModel.swift in Sources */,
-				D639ACD82991538400E80D62 /* NDFavoritesViewViewModel.swift in Sources */,
 				D69779D529A12C5B00583AE3 /* NDSingInView.swift in Sources */,
 				D639ACC92991515C00E80D62 /* NDPostModel.swift in Sources */,
 				D6746DEC29990062005E5584 /* NDProfileHeaderViewCollectionViewCell.swift in Sources */,
-				D639ACD42991536100E80D62 /* NDFeedViewViewModel.swift in Sources */,
-				D639ACFA2997F83600E80D62 /* NDProfileHeaderViewViewModel.swift in Sources */,
-				D639ACD62991536F00E80D62 /* NDProfileViewViewModel.swift in Sources */,
-				D69779D1299EA94000583AE3 /* NDRegisterUserViewViewModel.swift in Sources */,
 				D639ACC32991478600E80D62 /* NDProfileViewController.swift in Sources */,
 				D639ACE02991738F00E80D62 /* Extentions.swift in Sources */,
-				D6FFA04529A2837900A9F569 /* NDDetailedInfoViewViewModel.swift in Sources */,
-				D639ACE429917A0800E80D62 /* NDPostTableViewCellViewModel.swift in Sources */,
 				D605909E2999671C00C53D7C /* NDRegisterUserViewController.swift in Sources */,
 				D69779CD299D700700583AE3 /* NDAuthenticationManager.swift in Sources */,
 				D605909D2999671C00C53D7C /* NDSingInViewController.swift in Sources */,
 				D639ACDC2991543300E80D62 /* NDProfileView.swift in Sources */,
-				D6746DEE2999045F005E5584 /* NDProfileHeaderViewCollectionViewCellViewModel.swift in Sources */,
 				D6FFA03E29A14D6D00A9F569 /* NDFirestroreManager.swift in Sources */,
-				D69779D329A118C400583AE3 /* NDUserManager.swift in Sources */,
 				D639ACEA2997C13B00E80D62 /* NDFeedTableHeaderView.swift in Sources */,
 				D67D1BB7299142CF00385265 /* AppDelegate.swift in Sources */,
-				D69779D729A12DFF00583AE3 /* NDSingInViewViewModel.swift in Sources */,
 				D639ACCB2991531D00E80D62 /* NDUserModel.swift in Sources */,
+				D6469C0229C6325700ACD3A6 /* AuthErrorCodeExtention.swift in Sources */,
 				D698FB3929A53405009C70BC /* NDNewPostView.swift in Sources */,
 				D639ACF62997F5F700E80D62 /* NDProfileTableHeaderView.swift in Sources */,
-				D639ACF02997CBAA00E80D62 /* NDFeedHeadViewCollectionViewViewModel.swift in Sources */,
+				D6469C0429C63B6A00ACD3A6 /* ViewControllerExtentions.swift in Sources */,
 				D67D1BB9299142CF00385265 /* SceneDelegate.swift in Sources */,
 				D639ACE2299175E200E80D62 /* NDPostTableViewCell.swift in Sources */,
 				D6FFA04129A2645500A9F569 /* NDDetailedUserInfoViewController.swift in Sources */,

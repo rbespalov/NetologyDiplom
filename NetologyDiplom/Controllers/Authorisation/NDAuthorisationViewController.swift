@@ -9,37 +9,44 @@ import UIKit
 
 class NDAuthorisationViewController: UIViewController {
     
-    private let authView = NDAuthorisationView()
+    private var authView: NDAuthorisationView! {
+        guard isViewLoaded else {
+            return nil
+        }
+        return (view as! NDAuthorisationView)
+    }
+    
+    override func loadView() {
+        super.loadView()
+        
+        let authView = NDAuthorisationView()
+        authView.configure()
+        view = authView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(authView)
-        setupConstraints()
         view.backgroundColor = .systemBackground
         authView.delegate = self
     }
-
-    private func setupConstraints() {
-        NSLayoutConstraint.activate([
-            authView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            authView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            authView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
-            authView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
-        ])
-    }
     
+    @objc func registerUserTapped() {
+        print("register user")
+    }
+
 }
 
 extension NDAuthorisationViewController: NDAuthorisationViewDelegate {
     func didTapRegister() {
-        let regVC = NDRegisterUserViewController()
-        navigationController?.pushViewController(regVC, animated: true)
+        let registerVC = NDRegisterUserViewController()
+        navigationController?.pushViewController(registerVC, animated: true)
     }
     
     func didTapSingUp() {
-        let singIN = NDSingInViewController()
-        navigationController?.pushViewController(singIN, animated: true)
+        let singInVC = NDSingInViewController()
+        navigationController?.pushViewController(singInVC, animated: true)
     }
     
     
 }
+

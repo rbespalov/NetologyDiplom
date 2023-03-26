@@ -9,17 +9,6 @@ import UIKit
 
 final class NDTabBarController: UITabBarController {
     
-    public var currenUser: NDUserModel
-    
-    init(currenUser: NDUserModel) {
-        self.currenUser = currenUser
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,9 +19,9 @@ final class NDTabBarController: UITabBarController {
 
     private func setupTabBar() {
         
-        let feedVC = NDFeedViewController(currenUser: currenUser)
-        let profileVC = NDProfileViewController(currentUser: currenUser)
-        let favoritesVC = NDFavoritesViewController(currentUser: currenUser)
+        let feedVC = NDFeedViewController()
+        let profileVC = NDProfileViewController()
+        let favoritesVC = NDFavoritesViewController()
         
         for vc in [feedVC, profileVC, favoritesVC] {
             vc.navigationItem.largeTitleDisplayMode = .automatic

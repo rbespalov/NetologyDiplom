@@ -13,7 +13,7 @@ class NDPostTableViewCell: UITableViewCell {
     
     //MARK: - Private
     
-    private var authorAvatar: UIImageView = {
+    lazy var authorAvatar: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.layer.cornerRadius = imageView.frame.size.width / 2
@@ -23,19 +23,19 @@ class NDPostTableViewCell: UITableViewCell {
         return imageView
     }()
     
-    private var authorName: UILabel = {
+    lazy var authorName: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
        return label
     }()
     
-    private var authorStatus: UILabel = {
+    lazy var authorStatus: UILabel = {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    private var postText: UILabel = {
+    lazy var postText: UILabel = {
         let label = UILabel()
          label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
@@ -46,7 +46,7 @@ class NDPostTableViewCell: UITableViewCell {
          return label
      }()
     
-    private var postImage: UIImageView = {
+    lazy var postImage: UIImageView = {
         let postImage = UIImageView()
          postImage.translatesAutoresizingMaskIntoConstraints = false
         postImage.contentMode = .scaleAspectFit
@@ -55,43 +55,43 @@ class NDPostTableViewCell: UITableViewCell {
          return postImage
      }()
     
-    private var numberOfLikes: UILabel = {
+    lazy var numberOfLikes: UILabel = {
         let label = UILabel()
          label.translatesAutoresizingMaskIntoConstraints = false
          return label
      }()
     
-    private var likeImage: UIImageView = {
+    lazy var likeImage: UIImageView = {
         let image = UIImageView(image: UIImage(systemName: "heart"))
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
     
-    private var numberOfComments: UILabel = {
+    lazy var numberOfComments: UILabel = {
         let label = UILabel()
          label.translatesAutoresizingMaskIntoConstraints = false
          return label
      }()
     
-    private var commentImage: UIImageView = {
+    lazy var commentImage: UIImageView = {
         let image = UIImageView(image: UIImage(systemName: "message"))
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
     
-    private var postDate: UILabel = {
+    lazy var postDate: UILabel = {
         let label = UILabel()
          label.translatesAutoresizingMaskIntoConstraints = false
          return label
      }()
     
-    private var bookmarkImage: UIImageView = {
+    lazy var bookmarkImage: UIImageView = {
         let image = UIImageView(image: UIImage(systemName: "bookmark"))
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
     
-    private var ellipsisImage: UIImageView = {
+    lazy var ellipsisImage: UIImageView = {
         let image = UIImageView(image: UIImage(systemName: "ellipsis"))
         image.transform = image.transform.rotated(by: .pi/2)
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -183,20 +183,7 @@ class NDPostTableViewCell: UITableViewCell {
     
 
     
-    public func configure(with viewModel: NDPostTableViewCellViewModel) {
-//        authorName.text = viewModel.authorName
-//        authorStatus.text = viewModel.authorStatus
-////        поправить опционал аватара
-////        authorAvatar.image = UIImage(named: viewModel.authorAvatar ?? "")
-//        authorAvatar.image = viewModel.authorAvatar
-//        postText.text = viewModel.postText
-//        numberOfComments.text = String(viewModel.numberOfComments)
-//        numberOfLikes.text = String(viewModel.numberOfLikes)
-////        postImage.image = UIImage(named: viewModel.postImage)
-//        postImage.image = viewModel.postImage
-//        
-//        let df = DateFormatter()
-//        df.dateFormat = "dd.MM.yy"
-//        postDate.text = df.string(from: viewModel.postDate)
+    public func configure() {
+        //add cell setup
     }
 }

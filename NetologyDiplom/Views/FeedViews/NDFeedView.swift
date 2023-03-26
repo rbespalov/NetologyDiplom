@@ -9,11 +9,7 @@ import UIKit
 
 final class NDFeedView: UIView {
     
-    private let viewModel = NDFeedViewViewModel()
-    
-    public var currentUser: NDUserModel
-    
-    private let tableView: UITableView = {
+    lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(NDPostTableViewCell.self, forCellReuseIdentifier: NDPostTableViewCell.cellIdentifier)
@@ -21,41 +17,13 @@ final class NDFeedView: UIView {
         tableView.rowHeight = UITableView.automaticDimension
         return tableView
     }()
-
-//    init(currentUser: NDUserModel) {
-//        self.currentUser = currentUser
-//        super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-//    }
     
-    required init(currentUser: NDUserModel) {
-        self.currentUser = currentUser
-        super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-        translatesAutoresizingMaskIntoConstraints = false
+    func configure() {
         backgroundColor = .systemGreen
         addSubviews(tableView)
         setupConstraints()
-        tableView.delegate = viewModel
-        tableView.dataSource = viewModel
     }
-    
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//        translatesAutoresizingMaskIntoConstraints = false
-//        backgroundColor = .systemGreen
-//        addSubviews(tableView)
-//        setupConstraints()
-//        tableView.delegate = viewModel
-//        tableView.dataSource = viewModel
-//    }
-    
- 
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
 
-    
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: topAnchor),

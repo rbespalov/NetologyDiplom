@@ -7,25 +7,23 @@
 
 import UIKit
 
-class NDFeedHeaderView: UIView {
-    
-    let viewModel = NDFeedHeadViewCollectionViewViewModel()
-    
-    private let newsLabel: UILabel = {
+final class NDFeedHeaderView: UIView {
+        
+    lazy var newsLabel: UILabel = {
        let lablel = UILabel()
         lablel.attributedText = NSAttributedString(string: "Новости", attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
         lablel.translatesAutoresizingMaskIntoConstraints = false
         return lablel
     }()
     
-    private let forYouLabel: UILabel = {
+    lazy var forYouLabel: UILabel = {
        let label = UILabel()
         label.text = "Для вас"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    let collectionView: UICollectionView = {
+    lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10)
@@ -39,8 +37,6 @@ class NDFeedHeaderView: UIView {
         super.init(frame: frame)
         addSubviews(newsLabel, forYouLabel, collectionView)
         setupConstraints()
-        collectionView.delegate = viewModel
-        collectionView.dataSource = viewModel
     }
     
     required init?(coder: NSCoder) {
@@ -61,6 +57,5 @@ class NDFeedHeaderView: UIView {
             collectionView.rightAnchor.constraint(equalTo: rightAnchor),
             collectionView.heightAnchor.constraint(equalToConstant: 100)
         ])
-        
     }
 }

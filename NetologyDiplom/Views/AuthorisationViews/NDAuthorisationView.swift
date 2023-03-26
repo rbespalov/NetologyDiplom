@@ -12,11 +12,11 @@ protocol NDAuthorisationViewDelegate: AnyObject {
     func didTapSingUp()
 }
 
-class NDAuthorisationView: UIView {
+final class NDAuthorisationView: UIView {
     
     public weak var delegate: NDAuthorisationViewDelegate?
     
-    private var logoImage: UIImageView = {
+    lazy var logoImage: UIImageView = {
         let image = UIImageView(image: UIImage(named: "logo"))
         image.contentMode = .scaleAspectFit
         image.layer.cornerRadius = 20
@@ -25,17 +25,17 @@ class NDAuthorisationView: UIView {
         return image
     }()
     
-    private var registerButton: UIButton = {
+    lazy var registerButton: UIButton = {
        let button = UIButton()
         button.setTitle("ЗАРЕГИСТРИРОВАТЬСЯ", for: .normal)
         button.layer.cornerRadius = 15
-        button.addTarget(nil, action: #selector(didRegister), for: .touchUpInside)
+        button.addTarget(nil, action: #selector(tapRegister), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .systemGreen
         return button
     }()
     
-    private var singInButton: UIButton = {
+    lazy var singInButton: UIButton = {
         let button = UIButton()
         button.setTitle("Уже есть аккаунт", for: .normal)
         button.setTitleColor(.label, for: .normal)
@@ -44,16 +44,10 @@ class NDAuthorisationView: UIView {
         return button
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        translatesAutoresizingMaskIntoConstraints = false
+    func configure() {
         backgroundColor = .systemBackground
         addSubviews(logoImage, registerButton, singInButton)
         setupConstraints()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     private func setupConstraints() {
@@ -61,7 +55,7 @@ class NDAuthorisationView: UIView {
         let width = UIScreen.main.bounds.width-60
         
         NSLayoutConstraint.activate([
-            logoImage.topAnchor.constraint(equalTo: topAnchor, constant: 30),
+            logoImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 30),
             logoImage.centerXAnchor.constraint(equalTo: centerXAnchor),
             logoImage.widthAnchor.constraint(equalToConstant: width),
             logoImage.heightAnchor.constraint(equalToConstant: width),
@@ -79,11 +73,11 @@ class NDAuthorisationView: UIView {
         ])
     }
     
-    @objc private func didTapSingIn() {
-        delegate?.didTapSingUp()
+    @objc func tapRegister() {
+        delegate?.didTapRegister()
     }
     
-    @objc private func didRegister() {
-        delegate?.didTapRegister()
+    @objc func didTapSingIn() {
+        delegate?.didTapSingUp()
     }
 }

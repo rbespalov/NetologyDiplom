@@ -16,21 +16,41 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
 //        let tabBar = NDDetailedUserInfoViewController()
-        let tabBar = NDRegisterUserViewController()
+//        let tabBar = NDRegisterUserViewController()
 //        let tabBar = NDSingInViewController()
+//        let tabBar = NDAuthorisationViewController()
 //        let tabBar = NDNewPostViewController()
-//        let tabBar = NDTabBarController()
-        let nav = UINavigationController(rootViewController: tabBar)
+//        let nav = NDTabBarController()
+//        let nav = UINavigationController(rootViewController: tabBar)
+        
+        let currenUserID = UserDefaults.standard.string(forKey: "currentUserId")
+        if currenUserID != "" {
+            print("has user")
+            let tabBar = NDTabBarController()
+            let nav = UINavigationController(rootViewController: tabBar)
+            window.rootViewController = nav
+        } else {
+            print("empty user")
+            let tabBar = NDAuthorisationViewController()
+            let nav = UINavigationController(rootViewController: tabBar)
+            window.rootViewController = nav
+        }
+        
         self.window = window
-        window.rootViewController = nav
+//        window.rootViewController = nav
         window.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
-        // Called as the scene is being released by the system.
-        // This occurs shortly after the scene enters the background, or when its session is discarded.
-        // Release any resources associated with this scene that can be re-created the next time the scene connects.
-        // The scene may re-connect later, as its session was not necessarily discarded (see `application:didDiscardSceneSessions` instead).
+        
+//        do {
+//            try NDAuthenticationManager.shared.manager.signOut()
+//            UserDefaults.standard.set("", forKey: "currentUserId")
+//        }
+//        catch {
+//            return
+//        }
+
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {

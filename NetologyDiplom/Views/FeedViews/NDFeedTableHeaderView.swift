@@ -11,9 +11,11 @@ class NDFeedTableHeaderView: UITableViewHeaderFooterView {
     
     static let headeridentifier = "NDFeedHeaderView"
     
-    private var headerView: NDFeedHeaderView = {
+    lazy var headerView: NDFeedHeaderView = {
         let view = NDFeedHeaderView()
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.collectionView.delegate = self
+        view.collectionView.dataSource = self
         return view
     }()
 
@@ -21,7 +23,6 @@ class NDFeedTableHeaderView: UITableViewHeaderFooterView {
         super.init(reuseIdentifier: reuseIdentifier)
         addSubview(headerView)
         setupConstraint()
-        
     }
     
     required init?(coder: NSCoder) {
@@ -37,4 +38,30 @@ class NDFeedTableHeaderView: UITableViewHeaderFooterView {
 
         ])
     }
+}
+
+extension NDFeedTableHeaderView: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 7
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NDFeedHeaderViewCollectionViewCell.cellIdentifier, for: indexPath) as? NDFeedHeaderViewCollectionViewCell else {
+            fatalError("Unsupported cell")
+        }
+//        cell.configure(with: avatars[indexPath.row])
+        return cell
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        let bounds = UIScreen.main.bounds
+        let width = (bounds.width-60)/5
+        return CGSize(width: width, height: width)
+    }
+    
+    
 }

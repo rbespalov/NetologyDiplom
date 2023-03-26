@@ -7,19 +7,15 @@
 
 import UIKit
 
-protocol NDSingInViewDelegate: AnyObject {
-    func userSingIn()
+protocol SingInViewDelegate: AnyObject{
+    func singInTapped()
 }
 
-class NDSingInView: UIView {
-
-    private let authManager = NDAuthenticationManager.shared
+final class NDSingInView: UIView {
     
-    private let viewModel = NDSingInViewViewModel()
+    weak var delegate: SingInViewDelegate?
     
-    public weak var delegate: NDSingInViewDelegate?
-    
-    private let singInLabel: UILabel = {
+    lazy var singInLabel: UILabel = {
        let label = UILabel()
         label.text = "ВОЙТИ"
         label.textColor = .label
@@ -27,7 +23,7 @@ class NDSingInView: UIView {
         return label
     }()
     
-    private lazy var loginTextField: UITextField = {
+    lazy var loginTextField: UITextField = {
 
         let loginTextField = UITextField()
         
@@ -46,15 +42,13 @@ class NDSingInView: UIView {
         loginTextField.layer.borderWidth = 0.5
         loginTextField.returnKeyType = UIReturnKeyType.done
         loginTextField.autocorrectionType = .no
-        loginTextField.keyboardType = .emailAddress
-        
-        loginTextField.delegate = viewModel
-            
+        loginTextField.keyboardType = .default
+                    
         return loginTextField
     }()
     
     
-    private lazy var passwordTextField: UITextField = {
+    lazy var passwordTextField: UITextField = {
         let passwordTextField = UITextField()
         
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
@@ -72,15 +66,13 @@ class NDSingInView: UIView {
         passwordTextField.layer.borderWidth = 0.5
         passwordTextField.returnKeyType = UIReturnKeyType.done
         passwordTextField.autocorrectionType = .no
-        passwordTextField.keyboardType = .namePhonePad
+        passwordTextField.keyboardType = .default
         passwordTextField.isSecureTextEntry = true
-        
-        passwordTextField.delegate = viewModel
-        
+                
         return passwordTextField
     }()
     
-    private lazy var stackView: UIStackView = {
+    lazy var stackView: UIStackView = {
 
         let stackView = UIStackView()
         stackView.layer.cornerRadius = 10
@@ -97,35 +89,26 @@ class NDSingInView: UIView {
         return stackView
     }()
     
-    private var singInButton: UIButton = {
+    lazy var singInButton: UIButton = {
        let button = UIButton()
         button.setTitle("ВОЙТИ", for: .normal)
         button.layer.cornerRadius = 10
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .systemGreen
-        button.addTarget(nil, action: #selector(register), for: .touchUpInside)
+        button.addTarget(nil, action: #selector(singIn), for: .touchUpInside)
         return button
     }()
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    
+    func configure() {
         backgroundColor = .systemBackground
-        translatesAutoresizingMaskIntoConstraints = false
         addSubviews(singInLabel,stackView,singInButton)
         setupConstraints()
-        viewModel.delegate = self
-        
     }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     
     private func setupConstraints() {
         
         NSLayoutConstraint.activate([
-            singInLabel.topAnchor.constraint(equalTo: topAnchor, constant: 30),
+            singInLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 30),
             singInLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             
             stackView.topAnchor.constraint(equalTo: singInLabel.bottomAnchor, constant: 30),
@@ -141,18 +124,10 @@ class NDSingInView: UIView {
         
     }
     
-    @objc private func register() {
+    @objc private func singIn() {
         loginTextField.endEditing(true)
         passwordTextField.endEditing(true)
-        viewModel.singInUser()
+        delegate?.singInTapped()
     }
-    
 }
 
-extension NDSingInView: NDSingInViewViewModelDelegate {
-    func userSingIn() {
-        delegate?.userSingIn()
-    }
-    
-    
-}

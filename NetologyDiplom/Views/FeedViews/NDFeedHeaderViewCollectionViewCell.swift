@@ -46,7 +46,7 @@ class NDFeedHeaderViewCollectionViewCell: UICollectionViewCell {
         super.prepareForReuse()
     }
     
-    public func configure (with viewModel: NDFeedHeadViewCollectionViewCellViewModel) {
-        friendAvatar.image = UIImage(named: viewModel.friendAvatar)
+    public func configure () {
+        //set configure
     }
 }

@@ -7,20 +7,11 @@
 
 import UIKit
 
-protocol NDProfileTableHeaderViewDelegate: AnyObject {
-    func didTapDetailUserInfo()
-    func createPost()
-}
-
 class NDProfileTableHeaderView: UITableViewHeaderFooterView {
 
     static let headeridentifier = "NDProfileTableHeaderView"
     
-    public var currentUser: NDUserModel?
-    
-    public weak var delegate: NDProfileTableHeaderViewDelegate?
-    
-    private var headerView: NDProfileHeaderView = {
+    lazy var headerView: NDProfileHeaderView = {
         let view = NDProfileHeaderView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -30,20 +21,9 @@ class NDProfileTableHeaderView: UITableViewHeaderFooterView {
         super.init(reuseIdentifier: reuseIdentifier)
         addSubview(headerView)
         setupConstraint()
-        print(NDFirestoreDatabase.shared.currentUserID)
-        headerView.delegate = self
-        
+        headerView.collectionView.delegate = self
+        headerView.collectionView.dataSource = self
     }
-    
-//    required init(currentUser: NDUserModel, reuseIdentifier: String?) {
-//        self.currentUser = currentUser
-//        super.init(reuseIdentifier: reuseIdentifier)
-//        addSubview(headerView)
-//        setupConstraint()
-//
-//        headerView.delegate = self
-//        print(currentUser)
-//    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -57,20 +37,28 @@ class NDProfileTableHeaderView: UITableViewHeaderFooterView {
             headerView.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor),
         ])
     }
-
 }
 
-
-extension NDProfileTableHeaderView: NDProfileHeaderViewDelegate {
-    func createPost() {
-        delegate?.createPost()
+extension NDProfileTableHeaderView: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        return 7
+        
     }
     
-    func didTapDetailUserInfo() {
-        delegate?.didTapDetailUserInfo()
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NDProfileHeaderViewCollectionViewCell.cellIdentifier, for: indexPath) as? NDProfileHeaderViewCollectionViewCell else {
+            fatalError("Unsupported cell")
+        }
+//        cell.configure(with: photos[indexPath.row])
+        return cell
     }
     
-    
-    
-    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let bounds = UIScreen.main.bounds
+        let width = (bounds.width - 60)/4
+        return CGSize(width: width, height: width)
+    }
 }

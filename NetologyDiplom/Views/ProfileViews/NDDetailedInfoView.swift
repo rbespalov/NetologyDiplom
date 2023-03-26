@@ -8,10 +8,8 @@
 import UIKit
 
 class NDDetailedInfoView: UIView {
-    
-    private let viewModel = NDDetailedInfoViewViewModel()
-    
-    private let nameLabel: UILabel = {
+        
+    lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.text = "Имя"
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -19,15 +17,14 @@ class NDDetailedInfoView: UIView {
         return label
     }()
     
-    private lazy var nameTextField: UITextField = {
+     
+    lazy var nameTextField: UITextField = {
         
         let textFIeld = UITextField()
         textFIeld.tag = 1
         textFIeld.translatesAutoresizingMaskIntoConstraints = false
         textFIeld.placeholder = "имя"
-        
-//        textFIeld.text = viewModel.firstName
-        
+            
         textFIeld.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: textFIeld.frame.height))
         textFIeld.leftViewMode = .always
         
@@ -39,13 +36,11 @@ class NDDetailedInfoView: UIView {
         textFIeld.returnKeyType = UIReturnKeyType.done
         textFIeld.autocorrectionType = .no
         textFIeld.keyboardType = .default
-        
-        textFIeld.delegate = viewModel
-            
+                    
         return textFIeld
     }()
     
-    private let secondNameLabel: UILabel = {
+    lazy var secondNameLabel: UILabel = {
         let label = UILabel()
         label.text = "Фамилия"
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -53,15 +48,13 @@ class NDDetailedInfoView: UIView {
         return label
     }()
     
-    private lazy var secondNameTextField: UITextField = {
+    lazy var secondNameTextField: UITextField = {
         
         let textFIeld = UITextField()
         textFIeld.tag = 2
         textFIeld.translatesAutoresizingMaskIntoConstraints = false
         textFIeld.placeholder = "фамилия"
-        
-//        textFIeld.text = viewModel.secondName
-        
+                
         textFIeld.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: textFIeld.frame.height))
         textFIeld.leftViewMode = .always
         textFIeld.textColor = .systemGray2
@@ -73,13 +66,11 @@ class NDDetailedInfoView: UIView {
         textFIeld.returnKeyType = UIReturnKeyType.done
         textFIeld.autocorrectionType = .no
         textFIeld.keyboardType = .default
-        
-        textFIeld.delegate = viewModel
-            
+                    
         return textFIeld
     }()
     
-    private lazy var genderLabel: UILabel = {
+    lazy var genderLabel: UILabel = {
         let label = UILabel()
         label.text = "Пол"
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -87,7 +78,7 @@ class NDDetailedInfoView: UIView {
         return label
     }()
     
-    private lazy var maleCheckmark: UIImageView = {
+    lazy var maleCheckmark: UIImageView = {
         let imageView = UIImageView(image: UIImage(systemName: "circle"))
         imageView.tintColor = .systemGray2
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -97,7 +88,7 @@ class NDDetailedInfoView: UIView {
         return imageView
     }()
     
-    private lazy var feemaleCheckmark: UIImageView = {
+    lazy var feemaleCheckmark: UIImageView = {
         let imageView = UIImageView(image: UIImage(systemName: "circle"))
         imageView.tintColor = .systemGray2
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -107,7 +98,7 @@ class NDDetailedInfoView: UIView {
         return imageView
     }()
     
-    private let maleLabel: UILabel = {
+    lazy var maleLabel: UILabel = {
         let label = UILabel()
         label.text = "мужской"
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -115,7 +106,7 @@ class NDDetailedInfoView: UIView {
         return label
     }()
     
-    private let feemaleLabel: UILabel = {
+    lazy var feemaleLabel: UILabel = {
         let label = UILabel()
         label.text = "женский"
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -123,7 +114,7 @@ class NDDetailedInfoView: UIView {
         return label
     }()
     
-    private let birthDateLabel: UILabel = {
+    lazy var birthDateLabel: UILabel = {
         let label = UILabel()
         label.text = "Дата рождения"
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -131,15 +122,13 @@ class NDDetailedInfoView: UIView {
         return label
     }()
     
-    private lazy var birthDateTextField: UITextField = {
+    lazy var birthDateTextField: UITextField = {
         
         let textFIeld = UITextField()
         textFIeld.tag = 3
         textFIeld.translatesAutoresizingMaskIntoConstraints = false
         textFIeld.placeholder = "ваша дата рождения"
-        
-//        textFIeld.text = viewModel.birthDate
-        
+            
         textFIeld.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: textFIeld.frame.height))
         textFIeld.leftViewMode = .always
         textFIeld.textColor = .systemGray2
@@ -147,17 +136,14 @@ class NDDetailedInfoView: UIView {
         textFIeld.backgroundColor = .systemGray6
         textFIeld.layer.cornerRadius = 10
 
-        
         textFIeld.returnKeyType = UIReturnKeyType.done
         textFIeld.autocorrectionType = .no
         textFIeld.keyboardType = .default
-        
-        textFIeld.delegate = viewModel
-            
+                
         return textFIeld
     }()
     
-    private let homeTownLabel: UILabel = {
+    lazy var homeTownLabel: UILabel = {
         let label = UILabel()
         label.text = "Родной город"
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -165,15 +151,13 @@ class NDDetailedInfoView: UIView {
         return label
     }()
     
-    private lazy var homeTownTextField: UITextField = {
+    lazy var homeTownTextField: UITextField = {
         
         let textFIeld = UITextField()
         textFIeld.tag = 4
         textFIeld.translatesAutoresizingMaskIntoConstraints = false
         textFIeld.placeholder = "введите город"
         
-//        textFIeld.text = viewModel.homeTown
-
         textFIeld.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: textFIeld.frame.height))
         textFIeld.leftViewMode = .always
         textFIeld.textColor = .systemGray2
@@ -185,32 +169,39 @@ class NDDetailedInfoView: UIView {
         textFIeld.returnKeyType = UIReturnKeyType.done
         textFIeld.autocorrectionType = .no
         textFIeld.keyboardType = .default
-        
-        textFIeld.delegate = viewModel
-            
+                    
         return textFIeld
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        translatesAutoresizingMaskIntoConstraints = false
+
+    func configure() {
         backgroundColor = .orange
-        addSubviews(nameLabel, nameTextField, secondNameLabel, secondNameTextField, genderLabel, maleLabel, maleCheckmark, feemaleLabel, feemaleCheckmark, birthDateLabel, birthDateTextField, homeTownLabel, homeTownTextField)
+        addSubviews(
+            nameLabel,
+            nameTextField,
+            secondNameLabel,
+            secondNameTextField,
+            genderLabel,
+            maleLabel,
+            maleCheckmark,
+            feemaleLabel,
+            feemaleCheckmark,
+            birthDateLabel,
+            birthDateTextField,
+            homeTownLabel,
+            homeTownTextField
+        )
+        
         setUpConstraints()
         
         setupTextFields()
         setupGenderCheckmark()
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    
     private func setUpConstraints() {
         NSLayoutConstraint.activate([
             
-            nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            nameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
             nameLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 10),
             
             nameTextField.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 10),
@@ -260,21 +251,17 @@ class NDDetailedInfoView: UIView {
     }
     
     @objc func tapMale() {
-//        NDFirestroreManager.shared.setDataForUser(userLogin: NDUserManager.shared.currentUser.login, dataType: "gender", dataValue: "male")
         maleCheckmark.image = UIImage(systemName: "smallcircle.filled.circle")
         maleCheckmark.tintColor = .systemGreen
         feemaleCheckmark.image = UIImage(systemName: "circle")
         feemaleCheckmark.tintColor = .systemGray2
-//        NDUserManager.shared.currentUser.gender = "male"
     }
     
     @objc func tapFeemale() {
-//        NDFirestroreManager.shared.setDataForUser(userLogin: NDUserManager.shared.currentUser.login, dataType: "gender", dataValue: "feemale")
         feemaleCheckmark.image = UIImage(systemName: "smallcircle.filled.circle")
         feemaleCheckmark.tintColor = .systemGreen
         maleCheckmark.image = UIImage(systemName: "circle")
         maleCheckmark.tintColor = .systemGray2
-//        NDUserManager.shared.currentUser.gender = "feemale"
     }
     
     private func setupTextFields() {
@@ -306,7 +293,5 @@ class NDDetailedInfoView: UIView {
 //            feemaleCheckmark.image = UIImage(systemName: "smallcircle.filled.circle")
 //            feemaleCheckmark.tintColor = .systemGreen
 //        }
-        
-        
     }
 }
